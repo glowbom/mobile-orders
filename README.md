@@ -1,3 +1,3 @@
-## Audio game engine for iOS and Android
+## Mobile Orders for iOS and Android
 
-Audio game allows you to turn audio tracks and images into a video game.
+Create your own mobile ordering app without code, using a Google Sheet.
