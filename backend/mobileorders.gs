@@ -1,24 +1,51 @@
 
-
-
 // ATTENTION!!! CHANGE THE URL TO YOUR SPREADSHEET URL
 var YOUR_SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1tUnbUF_BVWSbJc7s-b3hOZjl7-vEajOGOHlELFjV-tY/edit#gid=0';
   
-  
- 
-function onOpen() {
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('Glowbom').addItem('Console', 'showConsole').addToUi();
-}
 
-function showConsole() {
-  SpreadsheetApp.getActiveSpreadsheet().toast('Glowbom Console');
-}
 
 function doGet(e) {
-  var ss = SpreadsheetApp.openByUrl(YOUR_SPREADSHEET_URL)
-  var sheet = ss.getSheetByName('Products');
-  return getProducts(sheet);
+  if (e.parameters.data) {
+    var data = e.parameter.data;
+    
+    var ss = SpreadsheetApp.openByUrl(YOUR_SPREADSHEET_URL);
+    var sheet = ss.getSheetByName("Orders");
+    
+    var order = data.split(',');
+    
+    if (order.length > 2) {
+      var name = order[0];
+      var price = order[1];
+    
+      var elemens = [
+        name,
+        price
+      ];
+    
+      sheet.appendRow(elemens);
+  
+      var result = JSON.stringify({ 
+        success: true
+      });
+  
+      return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+    } else {
+      var result = JSON.stringify({ 
+        success: false
+      });
+  
+      return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+    }
+  } else {
+    var ss = SpreadsheetApp.openByUrl(YOUR_SPREADSHEET_URL)
+    var sheet = ss.getSheetByName('Products');
+    return getProducts(sheet);
+  }
+}
+
+function processData(data) {
+    
+  
 }
 
 function getProducts(sheet) {
