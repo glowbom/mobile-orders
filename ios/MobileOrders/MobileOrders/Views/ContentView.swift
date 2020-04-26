@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var selection = 0
     
     @State private var leftPictureNumber = 1;
@@ -23,7 +24,7 @@ struct ContentView: View {
                 ZStack {
                     NavigationView {
                         List(networkManager.posts) { post in
-                            NavigationLink(destination: DetailView(url: post.media)) {
+                            NavigationLink(destination: DetailView(post: post)) {
                                 HStack {
                                     Text(post.product)
                                         .font(.system(size: 22))
@@ -45,9 +46,11 @@ struct ContentView: View {
                 
                 
                 ZStack {
+                   
                     Color(red: 0.09, green: 0.63, blue: 0.52)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
+                        
                         Image("glowbom_logo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)

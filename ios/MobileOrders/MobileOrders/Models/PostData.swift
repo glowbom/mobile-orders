@@ -15,7 +15,7 @@ struct Results: Decodable {
 struct Post: Decodable, Identifiable {
     var id: String
     let product: String
-    let desciption: String?
+    let desciption: String
     let price: Float
     let count: Int?
     let media: String?
