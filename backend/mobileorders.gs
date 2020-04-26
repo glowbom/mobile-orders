@@ -37,11 +37,11 @@ function getProducts(sheet) {
     record['price'] = dataRow[2];
     record['count'] = dataRow[3];
     record['media'] = dataRow[4];
-    record['choice1'] = dataRow[5];
-    record['choice2'] = dataRow[6];
-    record['choice3'] = dataRow[7];
-    record['tips'] = dataRow[8];
-    record['tax'] = dataRow[9];
+    //record['choice1'] = dataRow[5];
+    //record['choice2'] = dataRow[6];
+    //record['choice3'] = dataRow[7];
+    //record['tips'] = dataRow[8];
+    //record['tax'] = dataRow[9];
     
     jo.data.push(record);
   } 
