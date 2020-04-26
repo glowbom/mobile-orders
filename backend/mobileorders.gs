@@ -22,13 +22,16 @@ function doGet(e) {
 }
 
 function getProducts(sheet) {
-  var jo = {};
-  var dataArray = [];
+  var jo = {
+    data: []
+  };
+  
   var rows = sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).getValues();
   
   for (var i = 0, l = rows.length; i < l - 1; i++) {
     var dataRow = rows[i];
     var record = {}
+    record['id'] = i.toString();
     record['product'] = dataRow[0];
     record['desciption'] = dataRow[1];
     record['price'] = dataRow[2];
@@ -38,13 +41,12 @@ function getProducts(sheet) {
     record['choice2'] = dataRow[6];
     record['choice3'] = dataRow[7];
     record['tips'] = dataRow[8];
+    record['tax'] = dataRow[9];
     
-    dataArray.push(record);
-  }
+    jo.data.push(record);
+  } 
   
-  jo.user = dataArray;
-  
-  var result = JSON.stringify(dataArray);
+  var result = JSON.stringify(jo);
   
   return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
 }
