@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkManager: ObservableObject {
     
-    static let YOUR_BACKEND_URL = "https://script.google.com/macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec";
+    static let YOUR_BACKEND_URL = "PUT_YOUR_SPEADSHEET_URL_HERE";
     
     @Published var posts = [Post]()
     
