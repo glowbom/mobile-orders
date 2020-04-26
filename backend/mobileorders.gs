@@ -1,6 +1,6 @@
 
 // ATTENTION!!! CHANGE THE URL TO YOUR SPREADSHEET URL
-var YOUR_SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1tUnbUF_BVWSbJc7s-b3hOZjl7-vEajOGOHlELFjV-tY/edit#gid=0';
+var YOUR_SPREADSHEET_URL = 'PUT_YOUR_SPEADSHEET_URL_HERE';
   
 
 
