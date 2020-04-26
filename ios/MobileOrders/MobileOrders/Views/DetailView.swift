@@ -16,51 +16,50 @@ struct DetailView: View {
     var body: some View {
         VStack() {
             
-            
             WebView(urlString: post?.media)
-                .frame(height: 300)
-            
-            Spacer()
-            Divider()
-            
-            Text(post!.product)
-                .bold()
-                .foregroundColor(Color.black)
+                .frame(height: 230)
                 .padding(.all)
+            Spacer()
+            
+            Divider()
             
             Text(post!.desciption)
+                .font(.system(size:22))
                 .foregroundColor(Color.black)
                 .padding(.all)
-           
-            Text("$" + post!.price.description)
-                .bold()
-                .foregroundColor(Color.black)
-                .padding(.all)
+
             
             Divider()
-            Spacer()
+           
             
             
             Button(action: {
-                AppManager.instance.orders.append(self.post!)
+                AppManager.instance.addOrder(order: self.post!)
                 self.mode.wrappedValue.dismiss()
             }) {
                 VStack {
                     Text("Order")
-                        .font(.system(size:50))
-                        .fontWeight(.heavy)
-                        .foregroundColor(.black)
-                        .padding()
+                    .font(.system(size:44))
+                    .fontWeight(.heavy)
+                    .foregroundColor(.black)
                     
-                    Text("Total Ordered: " + String(AppManager.instance.orders.count))
-                        .foregroundColor(.black)
-                        .padding()
+                    Text(String(format: "$%.02f",  post!.price))
+                    .font(.system(size:24))
+                    .bold()
+                    .foregroundColor(Color.black)
                 }
+                
             }
+            
+            Text(String(format: "Total Ordered: $%.02f", AppManager.instance.total))
+                .foregroundColor(.black)
+                .padding(.all)
             
             Spacer()
             
         }
+        
+        .navigationBarTitle(post!.product)
     }
 }
 

@@ -29,7 +29,7 @@ struct ContentView: View {
                                     Text(post.product)
                                         .font(.system(size: 22))
                                         .frame(minWidth: 260, minHeight: 60, alignment: .leading)
-                                    Text("$" + String(post.price))
+                                    Text(String(format: "$%.02f",  post.price))
                                         .bold()
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                 }
