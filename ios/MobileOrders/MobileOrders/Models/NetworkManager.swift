@@ -10,14 +10,12 @@ import Foundation
 
 class NetworkManager: ObservableObject {
     
+    static let YOUR_BACKEND_URL = "https://script.google.com/macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec";
+    
     @Published var posts = [Post]()
     
     func fetchData() {
-        
-        let YOUR_BACKEND_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=2q1KZ_es6HCFNyVLzX2FwIUWfmKCBEqOI5qP1ObvicfJoga9yCxQPIoW3AzUPWDykj0yIxk0fW2vBwAKMstXvHM_XnYHtl2Lm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNxkG2S6rj5CJoMZL8yroI1JgtrxVEY1Fi4y4lgR_YXNRjeUfq2j9K5ZuNN5taqIHtpytj_A4aoE&lib=MCrWMhYCA2FXUw8BXiMBEmEulueVC4bK2";
-        
-        
-        if let url = URL(string: YOUR_BACKEND_URL) {
+        if let url = URL(string: NetworkManager.YOUR_BACKEND_URL) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error == nil {
@@ -32,6 +30,19 @@ class NetworkManager: ObservableObject {
                             print(error)
                         }
                     }
+                }
+            }
+            task.resume();
+        }
+    }
+    
+    func placeOrder(data: String) {
+        if let url = URL(string: (NetworkManager.YOUR_BACKEND_URL + "?data=" + data)) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error == nil {
+                    //let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+                    //print(receivedData)
                 }
             }
             task.resume();

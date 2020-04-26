@@ -19,6 +19,7 @@ struct ContentView: View {
     
     @State private var showingNameAlert = false;
     @State private var showingOrdersAlert = false;
+    @State private var showingSuccessAlert = false;
     
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var appManager = AppManager()
@@ -78,7 +79,17 @@ struct ContentView: View {
                             Button(action: {
                                 if (self.name != "") {
                                     if (self.appManager.orders.count > 0) {
+                                        var data = self.name + "," + String(self.appManager.total) + ","
+                                        
+                                        for item in self.appManager.orders {
+                                            data += (item.id + ",");
+                                        }
+                                        
+                                        self.networkManager.placeOrder(data: data)
+                                        
+                                        self.appManager.total = 0.0;
                                         self.appManager.orders.removeAll();
+                                        self.showingSuccessAlert = true;
                                     } else {
                                         self.showingOrdersAlert = true;
                                     }
@@ -98,6 +109,9 @@ struct ContentView: View {
                             }
                             .alert(isPresented: $showingNameAlert) {
                                 Alert(title: Text("Order"), message: Text("Please enter your name."), dismissButton: .default(Text("Ok")))
+                            }
+                            .alert(isPresented: $showingSuccessAlert) {
+                                Alert(title: Text("Thank you, " + name + "!"), message: Text("Your order has been placed. See you soon!"), dismissButton: .default(Text("Great!")))
                             }
                         }
                         .navigationBarTitle("Checkout")
