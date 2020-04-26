@@ -30,13 +30,23 @@ function getProducts(sheet) {
   
   for (var i = 0, l = rows.length; i < l - 1; i++) {
     var dataRow = rows[i];
+    var media = String(dataRow[4]);
     var record = {}
     record['id'] = i.toString();
     record['product'] = dataRow[0];
     record['desciption'] = dataRow[1];
     record['price'] = dataRow[2];
     record['count'] = dataRow[3];
-    record['media'] = dataRow[4];
+    record['media'] = media;
+    
+    if (media && media.includes('youtube.com/watch')) {
+      media = media.replace('youtube.com/watch?v=', 'youtube.com/embed/');
+      if (media.includes('&')) {
+        media = media.split('&')[0];
+      }
+      record['media'] = media;
+    }
+    
     //record['choice1'] = dataRow[5];
     //record['choice2'] = dataRow[6];
     //record['choice3'] = dataRow[7];
