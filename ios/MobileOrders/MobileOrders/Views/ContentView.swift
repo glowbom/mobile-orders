@@ -34,6 +34,7 @@ struct ContentView: View {
                 ZStack {
                     NavigationView {
                         VStack {
+                           
                             List(networkManager.posts) { post in
                                 NavigationLink(destination: DetailView(post: post, appManager: self.appManager)) {
                                     HStack {
@@ -109,10 +110,17 @@ struct ContentView: View {
                                 
                             }) {
                                 Text("Place Order")
-                                    .font(.system(size:44))
+                                    .font(.system(size:34))
                                     .fontWeight(.heavy)
                                     .foregroundColor(.black)
                                     .padding(.all)
+                                
+                                Button(action: {
+                                    self.appManager.total = 0.0;
+                                    self.appManager.orders.removeAll();
+                                }) {
+                                    Text("Cancel")
+                                }
                             }
                             .alert(isPresented: $showingAlert) {
                                 switch activeAlert {
