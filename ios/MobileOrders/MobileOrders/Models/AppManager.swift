@@ -8,19 +8,17 @@
 
 import Foundation
 
-class AppManager {
-    static let instance = AppManager()
+class AppManager: ObservableObject {
 
-    private init() {
-        self.orders = []
-        self.total = 0
-    }
-
-    var orders: [Post]
-    var total: Float
+    @Published var orders = [Post]()
+    
+    var total: Float = 0.0;
     
     func addOrder(order: Post) {
-        orders.append(order)
-        total += order.price
+        DispatchQueue.main.async {
+            self.orders.append(order)
+            self.total += order.price
+        }
+        
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct DetailView: View {
     
     let post: Post?
+    let appManager: AppManager?
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var body: some View {
@@ -34,7 +35,7 @@ struct DetailView: View {
             
             
             Button(action: {
-                AppManager.instance.addOrder(order: self.post!)
+                self.appManager!.addOrder(order: self.post!)
                 self.mode.wrappedValue.dismiss()
             }) {
                 VStack {
@@ -48,10 +49,9 @@ struct DetailView: View {
                     .bold()
                     .foregroundColor(Color.black)
                 }
-                
             }
             
-            Text(String(format: "Total Ordered: $%.02f", AppManager.instance.total))
+            Text(String(format: "Total Ordered: $%.02f", appManager!.total))
                 .foregroundColor(.black)
                 .padding(.all)
             
@@ -65,6 +65,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(post: nil)
+        DetailView(post: nil, appManager: nil)
     }
 }
