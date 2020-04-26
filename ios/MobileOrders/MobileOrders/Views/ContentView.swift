@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+enum ActiveAlert {
+    case success, noname, noorders
+}
+
 struct ContentView: View {
     
     @State private var name: String = ""
@@ -17,9 +21,8 @@ struct ContentView: View {
     @State private var leftPictureNumber = 1;
     @State private var rightPictureNumber = 3;
     
-    @State private var showingNameAlert = false;
-    @State private var showingOrdersAlert = false;
-    @State private var showingSuccessAlert = false;
+    @State private var showingAlert = false;
+    @State private var activeAlert: ActiveAlert = .success
     
     @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var appManager = AppManager()
@@ -30,19 +33,22 @@ struct ContentView: View {
             TabView(selection: $selection){
                 ZStack {
                     NavigationView {
-                        List(networkManager.posts) { post in
-                            NavigationLink(destination: DetailView(post: post, appManager: self.appManager)) {
-                                HStack {
-                                    Text(post.product)
-                                        .font(.system(size: 22))
-                                        .frame(minWidth: 260, minHeight: 60, alignment: .leading)
-                                    Text(String(format: "$%.02f",  post.price))
-                                        .bold()
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        VStack {
+                            List(networkManager.posts) { post in
+                                NavigationLink(destination: DetailView(post: post, appManager: self.appManager)) {
+                                    HStack {
+                                        Text(post.product)
+                                            .font(.system(size: 22))
+                                            .frame(minWidth: 260, minHeight: 60, alignment: .leading)
+                                        Text(String(format: "$%.02f",  post.price))
+                                            .bold()
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                    }
                                 }
                             }
+                            .navigationBarTitle("Menu")
+                            
                         }
-                        .navigationBarTitle("Menu")
                     }
                 }.tabItem {
                     VStack {
@@ -60,6 +66,7 @@ struct ContentView: View {
                                 .frame(alignment: .center)
                                 .padding(.all)
                             
+                            
                             List(appManager.orders) { post in
                                 HStack {
                                     Text(post.product)
@@ -75,7 +82,7 @@ struct ContentView: View {
                             Text(String(format: "Total Ordered: $%.02f", appManager.total))
                                 .foregroundColor(.black)
                                 .padding(.all)
-                            
+
                             Button(action: {
                                 if (self.name != "") {
                                     if (self.appManager.orders.count > 0) {
@@ -89,32 +96,38 @@ struct ContentView: View {
                                         
                                         self.appManager.total = 0.0;
                                         self.appManager.orders.removeAll();
-                                        self.showingSuccessAlert = true;
+                                        self.showingAlert = true;
+                                        self.activeAlert = .success
                                     } else {
-                                        self.showingOrdersAlert = true;
+                                        self.showingAlert = true;
+                                        self.activeAlert = .noorders
                                     }
                                 } else {
-                                    self.showingNameAlert = true;
+                                    self.showingAlert = true;
+                                    self.activeAlert = .noname
                                 }
                                 
                             }) {
-                                Text("Order")
+                                Text("Place Order")
                                     .font(.system(size:44))
                                     .fontWeight(.heavy)
                                     .foregroundColor(.black)
                                     .padding(.all)
                             }
-                            .alert(isPresented: $showingOrdersAlert) {
-                                Alert(title: Text("Order"), message: Text("You didn't order anything."), dismissButton: .default(Text("Ok")))
+                            .alert(isPresented: $showingAlert) {
+                                switch activeAlert {
+                                case .success:
+                                    return Alert(title: Text("Thank you, " + name + "!"), message: Text("Your order has been placed. See you soon!"), dismissButton: .default(Text("Great!")))
+                                case .noname:
+                                    return Alert(title: Text("Order"), message: Text("Please enter your name."), dismissButton: .default(Text("Ok")))
+                                case .noorders:
+                                    return Alert(title: Text("Order"), message: Text("You didn't order anything."), dismissButton: .default(Text("Ok")))
+                                }
                             }
-                            .alert(isPresented: $showingNameAlert) {
-                                Alert(title: Text("Order"), message: Text("Please enter your name."), dismissButton: .default(Text("Ok")))
-                            }
-                            .alert(isPresented: $showingSuccessAlert) {
-                                Alert(title: Text("Thank you, " + name + "!"), message: Text("Your order has been placed. See you soon!"), dismissButton: .default(Text("Great!")))
-                            }
+                            
                         }
                         .navigationBarTitle("Checkout")
+                        
                     }
                 }.tabItem {
                     VStack {
