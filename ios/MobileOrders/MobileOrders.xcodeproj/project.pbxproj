@@ -13,6 +13,12 @@
 		8951DA35245434830042A7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8951DA34245434830042A7CC /* Assets.xcassets */; };
 		8951DA38245434830042A7CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8951DA37245434830042A7CC /* Preview Assets.xcassets */; };
 		8951DA3B245434830042A7CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8951DA39245434830042A7CC /* LaunchScreen.storyboard */; };
+		8951DA44245520AE0042A7CC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951DA43245520AD0042A7CC /* DetailView.swift */; };
+		8951DA462455226E0042A7CC /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951DA452455226E0042A7CC /* WebView.swift */; };
+		8951DA49245523820042A7CC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951DA48245523820042A7CC /* NetworkManager.swift */; };
+		8951DA4B245523B60042A7CC /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951DA4A245523B60042A7CC /* PostData.swift */; };
+		8951DA4E245529BA0042A7CC /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951DA4D245529BA0042A7CC /* InfoView.swift */; };
+		8951DA502455320D0042A7CC /* Pacifico in Resources */ = {isa = PBXBuildFile; fileRef = 8951DA4F2455320D0042A7CC /* Pacifico */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		8951DA37245434830042A7CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8951DA3A245434830042A7CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8951DA3C245434830042A7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8951DA43245520AD0042A7CC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8951DA452455226E0042A7CC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8951DA48245523820042A7CC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8951DA4A245523B60042A7CC /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		8951DA4D245529BA0042A7CC /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		8951DA4F2455320D0042A7CC /* Pacifico */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pacifico; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +68,11 @@
 		8951DA2D245434820042A7CC /* MobileOrders */ = {
 			isa = PBXGroup;
 			children = (
+				8951DA4C245524020042A7CC /* fonts */,
+				8951DA47245523410042A7CC /* Models */,
+				8951DA42245520830042A7CC /* Views */,
 				8951DA2E245434820042A7CC /* AppDelegate.swift */,
 				8951DA30245434820042A7CC /* SceneDelegate.swift */,
-				8951DA32245434820042A7CC /* ContentView.swift */,
 				8951DA34245434830042A7CC /* Assets.xcassets */,
 				8951DA39245434830042A7CC /* LaunchScreen.storyboard */,
 				8951DA3C245434830042A7CC /* Info.plist */,
@@ -73,6 +87,34 @@
 				8951DA37245434830042A7CC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8951DA42245520830042A7CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8951DA32245434820042A7CC /* ContentView.swift */,
+				8951DA43245520AD0042A7CC /* DetailView.swift */,
+				8951DA452455226E0042A7CC /* WebView.swift */,
+				8951DA4D245529BA0042A7CC /* InfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8951DA47245523410042A7CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8951DA48245523820042A7CC /* NetworkManager.swift */,
+				8951DA4A245523B60042A7CC /* PostData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8951DA4C245524020042A7CC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8951DA4F2455320D0042A7CC /* Pacifico */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +177,7 @@
 			files = (
 				8951DA3B245434830042A7CC /* LaunchScreen.storyboard in Resources */,
 				8951DA38245434830042A7CC /* Preview Assets.xcassets in Resources */,
+				8951DA502455320D0042A7CC /* Pacifico in Resources */,
 				8951DA35245434830042A7CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,8 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8951DA4E245529BA0042A7CC /* InfoView.swift in Sources */,
+				8951DA49245523820042A7CC /* NetworkManager.swift in Sources */,
 				8951DA2F245434820042A7CC /* AppDelegate.swift in Sources */,
+				8951DA462455226E0042A7CC /* WebView.swift in Sources */,
+				8951DA44245520AE0042A7CC /* DetailView.swift in Sources */,
 				8951DA31245434820042A7CC /* SceneDelegate.swift in Sources */,
+				8951DA4B245523B60042A7CC /* PostData.swift in Sources */,
 				8951DA33245434820042A7CC /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
