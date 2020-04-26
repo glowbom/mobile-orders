@@ -18,20 +18,23 @@ struct ContentView: View {
  
     var body: some View {
         ZStack {
-            Color(red: 0.09, green: 0.63, blue: 0.52)
-                .edgesIgnoringSafeArea(.all)
+
             TabView(selection: $selection){
                 ZStack {
                     NavigationView {
                         List(networkManager.posts) { post in
                             NavigationLink(destination: DetailView(url: post.media)) {
                                 HStack {
-                                    Text(String(post.price))
                                     Text(post.product)
+                                        .font(.system(size: 22))
+                                        .frame(minWidth: 260, minHeight: 60, alignment: .leading)
+                                    Text("$" + String(post.price))
+                                        .bold()
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
                                 }
                             }
                         }
-                        .navigationBarTitle("Please order...")
+                        .navigationBarTitle("Menu")
                     }
                 }.tabItem {
                     VStack {
@@ -51,7 +54,7 @@ struct ContentView: View {
                             .frame(width: 150, height: 150, alignment: .center)
                             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                             .overlay(Circle().stroke(Color.black, lineWidth: 2))
-                        Text("Glowbom Notes")
+                        Text("Glowbom Mobile Orders")
                             .font(Font.custom("Pacifico-Regular", size: 40))
                             .bold()
                             .foregroundColor(Color.white)
@@ -70,6 +73,8 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
+                
+                
             }
         }
         .onAppear {
