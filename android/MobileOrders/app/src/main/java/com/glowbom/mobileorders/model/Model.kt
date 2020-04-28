@@ -30,7 +30,7 @@ data class Item(
 
     @ColumnInfo(name = "video")
     @SerializedName("video")
-    val video: String?,
+    var video: String?,
 
     @ColumnInfo(name = "subtitle")
     @SerializedName("subtitle")

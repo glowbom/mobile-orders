@@ -99,6 +99,10 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
             var i = 0
             while (i < newItems.size) {
                 newItems[i].uuid = result[i].toInt()
+
+                if (newItems[i].imageUrl?.contains("youtube") == true) {
+                    newItems[i].video = newItems[i].imageUrl;
+                }
                 ++i;
             }
             itemsRetrieved(newItems)
