@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created on 4/28/20 2:47 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_mobile_orders_icon_background"/>
+    <foreground android:drawable="@mipmap/ic_mobile_orders_icon_foreground"/>
+</adaptive-icon>

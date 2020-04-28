@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created on 4/28/20 3:15 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.glowbom.mobileorders.model.Item" />
+        <variable
+            name="palette"
+            type="com.glowbom.mobileorders.model.ItemPalette" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{palette.color}"
+        tools:context=".view.ui.list.DetailFragment">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:minHeight="200dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{item.title}"
+            style="@style/Title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/purpose"
+            android:layout_below="@id/name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{item.video}"
+            style="@style/Text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/temperament"
+            android:layout_below="@id/purpose"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{item.description}"
+            style="@style/Text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lifespan"
+            android:layout_below="@id/temperament"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{item.subtitle}"
+            style="@style/Text"/>
+
+    </RelativeLayout>
+
+</layout>
+

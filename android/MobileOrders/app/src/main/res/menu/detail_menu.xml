@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created on 4/28/20 3:15 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_send_text"
+        android:title="Send Text"
+        android:icon="@drawable/ic_send"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/action_share"
+        android:title="Share"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="ifRoom"/>
+
+</menu>

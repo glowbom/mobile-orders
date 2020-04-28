@@ -1,6 +1,15 @@
+<!--
+  ~ Created on 4/28/20 3:16 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
 <resources>
     <string name="app_name">Mobile Orders</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

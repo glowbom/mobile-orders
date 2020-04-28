@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created on 4/28/20 3:16 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_list_fragment">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.glowbom.mobileorders.view.home.HomeFragment"
-        android:label="@string/title_home"
+        android:name="com.glowbom.mobileorders.view.ui.home.HomeFragment"
+        android:label="Personal"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.glowbom.mobileorders.view.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:name="com.glowbom.mobileorders.view.ui.dashboard.DashboardFragment"
+        android:label="Checkout"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.glowbom.mobileorders.view.notifications.NotificationsFragment"
+        android:name="com.glowbom.mobileorders.view.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_list_fragment"
+        android:name="com.glowbom.mobileorders.view.ui.list.ListFragment"
+        android:label="Order" >
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@id/navigation_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/actionSettings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail_fragment"
+        android:name="com.glowbom.mobileorders.view.ui.list.DetailFragment"
+        android:label="DetailFragment" >
+        <action
+            android:id="@+id/actionListFragment"
+            app:destination="@id/navigation_list_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <argument android:name="itemUid" android:defaultValue="0" app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.glowbom.mobileorders.view.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

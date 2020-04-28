@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created on 4/28/20 3:15 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/actionSettings"
+        android:title="Settings" />
+
+</menu>

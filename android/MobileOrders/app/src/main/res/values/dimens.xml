@@ -1,3 +1,9 @@
+<!--
+  ~ Created on 4/28/20 3:16 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>

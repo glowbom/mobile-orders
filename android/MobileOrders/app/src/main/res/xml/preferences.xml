@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created on 4/28/20 3:17 AM
+  ~
+  ~ Copyright 2020 Glowbom, Inc.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="10"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:inputType="number"
+        android:title="Cache duration in seconds"
+        android:key="pref_cache_duration"/>
+
+
+</PreferenceScreen>
