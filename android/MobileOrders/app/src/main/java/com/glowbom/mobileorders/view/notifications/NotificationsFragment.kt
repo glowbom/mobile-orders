@@ -1,4 +1,4 @@
-package com.glowbom.mobileorders.ui.notifications
+package com.glowbom.mobileorders.view.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

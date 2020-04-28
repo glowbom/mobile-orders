@@ -1,4 +1,4 @@
-package com.glowbom.mobileorders.ui.notifications
+package com.glowbom.mobileorders.view.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

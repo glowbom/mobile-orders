@@ -1,4 +1,4 @@
-package com.glowbom.mobileorders.ui.dashboard
+package com.glowbom.mobileorders.view.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

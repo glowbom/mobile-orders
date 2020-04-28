@@ -1,4 +1,4 @@
-package com.glowbom.mobileorders.ui.home
+package com.glowbom.mobileorders.view.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.glowbom.mobileorders.R
 
-class HomeFragment : Fragment() {
+class DashboardFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel =
+            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
