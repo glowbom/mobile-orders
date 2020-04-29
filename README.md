@@ -10,6 +10,8 @@ We used Swift (SwiftUI) and Kotlin (Jetpack) for mobile, JavaScript and Material
 
 Mobile Orders for Android made using Kotlin, Jetpack, MVVM, Room, Navigation, Coroutines, Retrofit, RxJava, Glide, KTX extensions, Data Binding, Palette, and AndroidX.
 
+Mobile Orders for iOS made using Swift 5 and SwiftUI.
+
 [Video Demo](https://www.youtube.com/watch?v=LaHW8FkSp6E)
 
 ## Feedback
