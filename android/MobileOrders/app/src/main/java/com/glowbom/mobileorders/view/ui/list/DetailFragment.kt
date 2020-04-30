@@ -9,18 +9,20 @@ package com.glowbom.mobileorders.view.ui.list
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.databinding.FragmentDetailBinding
 import com.glowbom.mobileorders.databinding.SendSmsDialogBinding
@@ -67,10 +69,35 @@ class DetailFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.liveData.observe(viewLifecycleOwner, Observer { item ->
             item?.let {
+
+                webview.settings.javaScriptEnabled = true
+                webview.settings.pluginState = WebSettings.PluginState.ON
+                webview.settings.useWideViewPort = true
+                webview.settings.loadWithOverviewMode = true
+                webview.goBack()
+                webview.webChromeClient = WebChromeClient()
+
                 currentItem = item
                 dataBinding.item = it
                 context?.let {
                     image.loadImage(item.imageUrl, getProgressDrawable(it))
+
+                    item.imageUrl?.let {
+                        if (item.imageUrl.contains("youtube")) {
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.imageUrl)))
+
+                            val imageUrl = item.imageUrl.replace("https://www.youtube.com/embed/", "https://img.youtube.com/vi/") + "/0.jpg";
+                            webview.loadUrl(imageUrl)
+                        } else {
+                            webview.loadUrl(item.imageUrl)
+                        }
+
+
+                    }
+
+
+
+
                 }
 
                 it.imageUrl?.let {
