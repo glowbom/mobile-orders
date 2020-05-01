@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/navigation_detail_fragment"
         android:name="com.glowbom.mobileorders.view.ui.list.DetailFragment"
-        android:label="DetailFragment" >
+        android:label="Product" >
         <action
             android:id="@+id/actionListFragment"
             app:destination="@id/navigation_list_fragment"

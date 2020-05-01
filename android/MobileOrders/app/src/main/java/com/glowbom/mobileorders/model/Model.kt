@@ -36,7 +36,7 @@ data class Item(
     @SerializedName("subtitle")
     val subtitle: String?,
 
-    @SerializedName("description")
+    @SerializedName("desciption")
     val description: String?,
 
     @SerializedName("group")

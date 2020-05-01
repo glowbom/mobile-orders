@@ -33,6 +33,7 @@
             android:minHeight="200dp"/>
 
         <WebView
+            android:background="#fff"
             android:id="@+id/webview"
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
@@ -40,45 +41,71 @@
             android:scaleType="fitCenter"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/name"
-            android:layout_below="@id/image"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="4dp"
-            android:text="@{item.title}"
-            style="@style/Title"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/webview"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/name"
+                android:text="@{item.title}"
+                style="@style/Title"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/purpose"
-            android:layout_below="@id/name"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="4dp"
-            android:text="@{item.video}"
-            style="@style/Text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/temperament"
+                android:text="@{item.description}"
+                style="@style/Text"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/temperament"
-            android:layout_below="@id/purpose"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="4dp"
-            android:text="@{item.description}"
-            style="@style/Text"/>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="#fff"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="Order"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lifespan"
-            android:layout_below="@id/temperament"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="4dp"
-            android:text="@{item.subtitle}"
-            style="@style/Text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/purpose"
+                android:textStyle="bold"
+                android:text="@{String.format(@string/currency_format, item.price)}"
+                style="@style/Text"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/lifespan"
+                android:text="Total Ordered: $0.00"
+                style="@style/Text"/>
+        </LinearLayout>
 
     </RelativeLayout>
 

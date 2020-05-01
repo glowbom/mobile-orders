@@ -13,7 +13,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.webkit.WebChromeClient
-import android.webkit.WebSettings
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -69,6 +68,8 @@ class DetailFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.liveData.observe(viewLifecycleOwner, Observer { item ->
             item?.let {
+
+
 
                 //webview.settings.javaScriptEnabled = true
                 webview.settings.useWideViewPort = true
