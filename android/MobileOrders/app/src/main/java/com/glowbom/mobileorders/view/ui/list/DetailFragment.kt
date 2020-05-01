@@ -25,6 +25,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.databinding.FragmentDetailBinding
 import com.glowbom.mobileorders.databinding.SendSmsDialogBinding
+import com.glowbom.mobileorders.model.AppManager
 import com.glowbom.mobileorders.model.Item
 import com.glowbom.mobileorders.model.ItemPalette
 import com.glowbom.mobileorders.model.SmsInfo
@@ -62,7 +63,21 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         viewModel.fetch(itemUid)
 
+
+        orderButton.setOnClickListener() {
+            currentItem.let {
+                AppManager.instance.addOrder(currentItem!!)
+                updateTotalOrders()
+            }
+        }
+
+        updateTotalOrders()
         observeViewModel()
+    }
+
+    private fun updateTotalOrders() {
+        total.text =
+            String.format(getString(R.string.total_format), AppManager.instance.getTotal());
     }
 
     private fun observeViewModel() {

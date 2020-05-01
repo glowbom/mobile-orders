@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.view.ListAdapter
 import com.glowbom.mobileorders.viewmodel.ListViewModel
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
 /*
