@@ -70,8 +70,7 @@ class DetailFragment : Fragment() {
         viewModel.liveData.observe(viewLifecycleOwner, Observer { item ->
             item?.let {
 
-                webview.settings.javaScriptEnabled = true
-                webview.settings.pluginState = WebSettings.PluginState.ON
+                //webview.settings.javaScriptEnabled = true
                 webview.settings.useWideViewPort = true
                 webview.settings.loadWithOverviewMode = true
                 webview.goBack()
