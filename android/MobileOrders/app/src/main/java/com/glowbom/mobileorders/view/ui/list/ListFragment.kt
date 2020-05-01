@@ -12,13 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.view.ListAdapter
 import com.glowbom.mobileorders.viewmodel.ListViewModel
-import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_list.*
+
 
 /*
  * Created on 4/4/20 12:11 AM
@@ -57,6 +57,13 @@ class ListFragment : Fragment() {
             viewModel.refreshBypassCache()
             refreshLayout.isRefreshing = false
         }
+
+        list.addItemDecoration(
+            DividerItemDecoration(
+                list.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         observeViewModel()
     }

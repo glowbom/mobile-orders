@@ -18,7 +18,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:onClick="@{listener::onItemClicked}"
-        android:layout_height="125dp">
+        android:layout_height="80dp">
 
         <TextView
             android:id="@+id/itemId"
@@ -33,13 +33,15 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:imageUrl="@{item.imageUrl}"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:padding="4dp"
+            android:layout_marginStart="12dp"
             android:gravity="center_vertical"
             android:orientation="vertical">
             <TextView
@@ -53,8 +55,18 @@
                 android:id="@+id/lifespan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 style="@style/Text"
                 android:text="@{item.subtitle}"/>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            style="@style/Title"
+            android:text="@{String.format(@string/currency_format, item.price)}"/>
     </LinearLayout>
 </layout>
