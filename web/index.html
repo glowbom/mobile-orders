@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125804183-1"></script>
+   <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'UA-125804183-1');
+   </script>
+   <!-- End of Goolge Analytics -->
+
+
+   
       <meta charset="UTF-8">
       <title>Glowbom Mobile Orders</title>
       
@@ -173,7 +186,7 @@
 
         <p>Donwload the source code:</p> 
 
-        <a href="https://github.com/Glowbom/mobile-orders/releases/download/1.0.1/mobile-orders-ios.zip" class="btn" style="width: 160px; margin: 3px;" role="link">
+        <a href="https://github.com/Glowbom/mobile-orders/releases/download/1.0.2/mobile-orders-sources.zip" class="btn" style="width: 160px; margin: 3px;" role="link">
           Get App Code
         </a>
 
@@ -183,9 +196,15 @@
       <div class="collapsible-header grey lighten-4"><h4>Step 11</h4></div>
       <div class="collapsible-body white">
 
-        <p>Unzip the code, open the project in <b>Xcode</b>, and put <b>Current web app URL</b> inside the line 13 of NetworkManager.swift file.</p> 
+        <p>Unzip the code, open the iOS project in <b>Xcode</b>, and put <b>Current web app URL</b> inside the line 13 of NetworkManager.swift file.</p> 
 
         <img src="img/xcode.png">
+
+        <br>
+
+        <p>Open the Android project in <b>Android Studio</b>, and put <b>Current web app URL</b> without <small>https://script.google.com/</small> inside the line 13 of ItemsApi.kt file.</p> 
+
+        <img src="img/androidstudio.png">
 
     </li>
 
