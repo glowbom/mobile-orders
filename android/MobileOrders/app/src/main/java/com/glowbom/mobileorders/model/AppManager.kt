@@ -7,11 +7,12 @@
 package com.glowbom.mobileorders.model
 
 class AppManager (
+    var name: String,
     private val data: MutableList<Item>,
     private var total: Float
 ) {
     companion object {
-        val instance = AppManager(mutableListOf(), 0f)
+        val instance = AppManager("", mutableListOf(), 0f)
     }
 
     fun addOrder(order: Item) {
@@ -30,5 +31,9 @@ class AppManager (
 
     fun getTotal() : Float {
         return total;
+    };
+
+    fun getData() : MutableList<Item> {
+        return data;
     };
 }

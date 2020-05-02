@@ -7,6 +7,8 @@
 package com.glowbom.mobileorders.view.ui.checkout
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +16,17 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.model.AppManager
+import com.glowbom.mobileorders.view.ui.orders.ListAdapter
 import kotlinx.android.synthetic.main.fragment_checkout.*
 
+
 class CheckoutFragment : Fragment() {
+
+    private val listAdapter =
+        ListAdapter(arrayListOf())
 
     private lateinit var checkoutViewModel: CheckoutViewModel
 
@@ -40,9 +48,51 @@ class CheckoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        list.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = listAdapter
+        }
+
+        nameInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (s.length != 0) {
+                    AppManager.instance.name = nameInput.text.toString()
+                }
+            }
+        })
+
         clearButton.setOnClickListener() {
             AppManager.instance.clear()
-            checkoutViewModel.text.value = String.format("Total Ordered: \$%,.2f", AppManager.instance.getTotal())
+            checkoutViewModel.refresh()
         }
+
+        observeViewModel()
+
+        checkoutViewModel.refresh()
+    }
+
+    private fun observeViewModel() {
+        checkoutViewModel.items.observe(viewLifecycleOwner, Observer { items ->
+            items?.let {
+                list.visibility = View.VISIBLE
+                listAdapter.updateList(items)
+            }
+        })
+
+        checkoutViewModel.name.observe(viewLifecycleOwner, Observer { name ->
+            name?.let {
+                nameInput.setText(name)
+            }
+        })
     }
 }

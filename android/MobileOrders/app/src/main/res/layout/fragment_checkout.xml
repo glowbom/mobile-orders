@@ -14,7 +14,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/nameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -22,6 +22,15 @@
         android:hint="Enter your name"
         android:layout_margin="20dp"
         android:textSize="20sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp" />
 
     <TextView
         android:id="@+id/text_total_ordered"

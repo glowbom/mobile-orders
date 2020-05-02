@@ -6,16 +6,28 @@
 
 package com.glowbom.mobileorders.view.ui.checkout
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.model.AppManager
+import com.glowbom.mobileorders.model.Item
 
 class CheckoutViewModel : ViewModel() {
 
+    val items = MutableLiveData<List<Item>>()
+
     private val _text = MutableLiveData<String>().apply {
-        value = String.format("Total Ordered: \$%,.2f", AppManager.instance.getTotal());
+        value = String.format("Total Ordered: \$%,.2f", AppManager.instance.getTotal())
     }
     val text: MutableLiveData<String> = _text
+
+    private val _name = MutableLiveData<String>().apply {
+        value = AppManager.instance.name
+    }
+    val name: MutableLiveData<String> = _name
+
+    fun refresh() {
+        name.value = AppManager.instance.name
+        text.value = String.format("Total Ordered: \$%,.2f", AppManager.instance.getTotal())
+        items.value = AppManager.instance.getData()
+    }
 }
