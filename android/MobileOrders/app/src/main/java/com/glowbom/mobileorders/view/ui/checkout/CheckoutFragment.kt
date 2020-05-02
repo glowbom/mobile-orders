@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.model.AppManager
 import com.glowbom.mobileorders.view.ui.orders.ListAdapter
+import com.glowbom.mobileorders.viewmodel.CheckoutViewModel
 import kotlinx.android.synthetic.main.fragment_checkout.*
 
 
@@ -48,6 +49,7 @@ class CheckoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        listAdapter.clickable = false
         list.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter

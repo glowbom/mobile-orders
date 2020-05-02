@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.item_list.view.*
 class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.ItemViewHolder>(),
     ItemClickListener {
 
+    var clickable: Boolean = true
+
     fun updateList(newList: List<Item>) {
         list.clear()
         list.addAll(newList)
@@ -44,9 +46,11 @@ class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.
     }
 
     override fun onItemClicked(v: View) {
-        val action = ListFragmentDirections.actionDetailFragment();
-        action.itemUid = v.itemId.text.toString().toInt()
-        Navigation.findNavController(v).navigate(action)
+        if (clickable) {
+            val action = ListFragmentDirections.actionDetailFragment();
+            action.itemUid = v.itemId.text.toString().toInt()
+            Navigation.findNavController(v).navigate(action)
+        }
     }
 
 }

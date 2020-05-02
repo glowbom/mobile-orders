@@ -4,7 +4,7 @@
  * Copyright 2020 Glowbom, Inc.
  */
 
-package com.glowbom.mobileorders.view.ui.checkout
+package com.glowbom.mobileorders.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
