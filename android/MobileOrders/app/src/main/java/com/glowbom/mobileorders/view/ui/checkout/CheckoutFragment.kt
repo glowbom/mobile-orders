@@ -7,6 +7,7 @@
 package com.glowbom.mobileorders.view.ui.checkout
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -118,18 +119,27 @@ class CheckoutFragment : Fragment() {
                     AppManager.instance.clear()
                     checkoutViewModel.refresh()
 
-                    Toast.makeText(activity, "Your order has been placed. See you soon!", Toast.LENGTH_SHORT).show()
+                    showMessage("Thank you, " + AppManager.instance.name + "!", "Your order has been placed. See you soon!")
                 } else {
-                    Toast.makeText(activity, "You didn't order anything.", Toast.LENGTH_SHORT).show()
+                    showMessage("Order", "You didn't order anything.")
                 }
             } else {
-                Toast.makeText(activity, "Please enter your name.", Toast.LENGTH_SHORT).show()
+                showMessage("Order", "Please enter your name.")
             }
         }
 
         observeViewModel()
 
         checkoutViewModel.refresh()
+    }
+
+    private fun showMessage(title: String, message: String) {
+        val builder = AlertDialog.Builder(activity)
+        builder.setTitle(title)
+        builder.setMessage(message)
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+        }
+        builder.show()
     }
 
     private fun observeViewModel() {
