@@ -4,7 +4,7 @@
  * Copyright 2020 Glowbom, Inc.
  */
 
-package com.glowbom.mobileorders.view.ui.list
+package com.glowbom.mobileorders.view.ui.orders
 
 import android.os.Bundle
 import android.view.*
@@ -15,7 +15,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.glowbom.mobileorders.R
-import com.glowbom.mobileorders.view.ListAdapter
 import com.glowbom.mobileorders.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -28,7 +27,8 @@ import kotlinx.android.synthetic.main.fragment_list.*
 class ListFragment : Fragment() {
 
     private lateinit var viewModel : ListViewModel
-    private val listAdapter = ListAdapter(arrayListOf())
+    private val listAdapter =
+        ListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

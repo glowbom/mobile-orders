@@ -64,7 +64,7 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
         launch {
             val items = ItemDatabase(getApplication()).itemDao().getAllItems()
             itemsRetrieved(items)
-            Toast.makeText(getApplication(), "Items retrieved from database", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(getApplication(), "Items retrieved from database", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -77,7 +77,7 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
                 .subscribeWith(object: DisposableSingleObserver<Data>() {
                     override fun onSuccess(newItems: Data) {
                         storeItemsLocally(newItems.data)
-                        Toast.makeText(getApplication(), "Items retrieved from endpoint", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(getApplication(), "Items retrieved from endpoint", Toast.LENGTH_SHORT).show()
                         NotificationsHelper(getApplication()).createNotification()
                     }
 

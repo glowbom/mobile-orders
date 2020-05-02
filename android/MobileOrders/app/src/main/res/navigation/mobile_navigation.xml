@@ -12,25 +12,14 @@
     app:startDestination="@+id/navigation_list_fragment">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.glowbom.mobileorders.view.ui.home.HomeFragment"
-        android:label="Personal"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.glowbom.mobileorders.view.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_checkout"
+        android:name="com.glowbom.mobileorders.view.ui.checkout.CheckoutFragment"
         android:label="Checkout"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_checkout" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.glowbom.mobileorders.view.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_list_fragment"
-        android:name="com.glowbom.mobileorders.view.ui.list.ListFragment"
+        android:name="com.glowbom.mobileorders.view.ui.orders.ListFragment"
         android:label="Menu" >
         <action
             android:id="@+id/actionDetailFragment"
@@ -43,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_detail_fragment"
-        android:name="com.glowbom.mobileorders.view.ui.list.DetailFragment"
+        android:name="com.glowbom.mobileorders.view.ui.orders.DetailFragment"
         android:label="Product" >
         <action
             android:id="@+id/actionListFragment"

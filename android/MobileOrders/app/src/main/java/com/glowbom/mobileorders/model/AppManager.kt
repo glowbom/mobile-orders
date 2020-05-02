@@ -23,6 +23,11 @@ class AppManager (
         }
     }
 
+    fun clear() {
+        total = 0f
+        data.clear()
+    };
+
     fun getTotal() : Float {
         return total;
     };

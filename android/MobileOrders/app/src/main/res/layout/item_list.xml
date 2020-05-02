@@ -12,7 +12,7 @@
             type="com.glowbom.mobileorders.model.Item" />
         <variable
             name="listener"
-            type="com.glowbom.mobileorders.view.ItemClickListener" />
+            type="com.glowbom.mobileorders.view.ui.orders.ItemClickListener" />
     </data>
     <LinearLayout
         android:orientation="horizontal"

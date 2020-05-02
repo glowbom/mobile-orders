@@ -1,10 +1,10 @@
 /*
- * Created on 4/28/20 3:14 AM
+ * Created on 5/1/20 8:11 PM
  *
  * Copyright 2020 Glowbom, Inc.
  */
 
-package com.glowbom.mobileorders.view
+package com.glowbom.mobileorders.view.ui.orders
 
 import android.view.View
 

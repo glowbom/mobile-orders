@@ -1,10 +1,10 @@
 /*
- * Created on 4/28/20 3:14 AM
+ * Created on 5/1/20 8:10 PM
  *
  * Copyright 2020 Glowbom, Inc.
  */
 
-package com.glowbom.mobileorders.view
+package com.glowbom.mobileorders.view.ui.orders
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.databinding.ItemListBinding
 import com.glowbom.mobileorders.model.Item
-import com.glowbom.mobileorders.view.ui.list.ListFragmentDirections
 import kotlinx.android.synthetic.main.item_list.view.*
 
-class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.ItemViewHolder>(), ItemClickListener {
+class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.ItemViewHolder>(),
+    ItemClickListener {
 
     fun updateList(newList: List<Item>) {
         list.clear()
@@ -31,7 +31,9 @@ class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = DataBindingUtil.inflate<ItemListBinding>(inflater, R.layout.item_list, parent, false)
-        return ItemViewHolder(view)
+        return ItemViewHolder(
+            view
+        )
     }
 
     override fun getItemCount() = list.size

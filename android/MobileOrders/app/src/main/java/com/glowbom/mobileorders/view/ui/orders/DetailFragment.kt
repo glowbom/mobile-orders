@@ -4,7 +4,7 @@
  * Copyright 2020 Glowbom, Inc.
  */
 
-package com.glowbom.mobileorders.view.ui.list
+package com.glowbom.mobileorders.view.ui.orders
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -18,6 +18,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
@@ -68,6 +69,7 @@ class DetailFragment : Fragment() {
             currentItem.let {
                 AppManager.instance.addOrder(currentItem!!)
                 updateTotalOrders()
+                findNavController().popBackStack()
             }
         }
 
@@ -77,7 +79,7 @@ class DetailFragment : Fragment() {
 
     private fun updateTotalOrders() {
         total.text =
-            String.format(getString(R.string.total_format), AppManager.instance.getTotal());
+            String.format(getString(R.string.total_format), AppManager.instance.getTotal())
     }
 
     private fun observeViewModel() {

@@ -22,7 +22,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.util.PERMISSION_SEND_SMS
-import com.glowbom.mobileorders.view.ui.list.DetailFragment
+import com.glowbom.mobileorders.view.ui.orders.DetailFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.navigation_list_fragment,
-            R.id.navigation_dashboard,
-            R.id.navigation_notifications
+            R.id.navigation_checkout
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
