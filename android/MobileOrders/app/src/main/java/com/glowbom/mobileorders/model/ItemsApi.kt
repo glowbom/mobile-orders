@@ -8,8 +8,12 @@ package com.glowbom.mobileorders.model
 
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ItemsApi {
     @GET("macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec")
     fun getItems(): Single<Data>
+
+    @GET("macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec")
+    fun addOrder(@Query("data") data : String): Single<Success>
 }

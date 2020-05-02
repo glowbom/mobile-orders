@@ -26,4 +26,8 @@ class ItemsApiService {
         return api.getItems()
     }
 
+    fun addOrder(data: String): Single<Success> {
+        return api.addOrder(data)
+    }
+
 }
