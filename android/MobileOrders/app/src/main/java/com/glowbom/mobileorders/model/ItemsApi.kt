@@ -10,10 +10,13 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+const val EXTRA_URL = "YOUR_PART_URL_STARTING_WITH_MACROS"
+
 interface ItemsApi {
-    @GET("macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec")
+
+    @GET(EXTRA_URL)
     fun getItems(): Single<Data>
 
-    @GET("macros/s/AKfycbzpcDZYAP71FNvU8kHQG_KBd624DnYrcJfPvKJUCYpDyJEyejs/exec")
+    @GET(EXTRA_URL)
     fun addOrder(@Query("data") data : String): Single<Success>
 }
