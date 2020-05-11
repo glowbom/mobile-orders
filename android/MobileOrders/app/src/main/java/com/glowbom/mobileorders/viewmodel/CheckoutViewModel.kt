@@ -25,7 +25,19 @@ class CheckoutViewModel : ViewModel() {
     }
     val name: MutableLiveData<String> = _name
 
+    private val _phone = MutableLiveData<String>().apply {
+        value = AppManager.instance.phone
+    }
+    val phone: MutableLiveData<String> = _phone
+
+    private val _address = MutableLiveData<String>().apply {
+        value = AppManager.instance.address
+    }
+    val address: MutableLiveData<String> = _address
+
     fun refresh() {
+        address.value = AppManager.instance.address
+        phone.value = AppManager.instance.phone
         name.value = AppManager.instance.name
         text.value = String.format("Total Ordered: \$%,.2f", AppManager.instance.getTotal())
         items.value = AppManager.instance.getData()

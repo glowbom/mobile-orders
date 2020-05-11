@@ -85,10 +85,10 @@ data class Item(
     val imageUrl: String?,
 
     @SerializedName("choice1")
-    val choice1: String?,
+    var choice1: String?,
 
     @SerializedName("choice2")
-    val choice2: String?,
+    var choice2: String?,
 
     @SerializedName("category")
     val category: String?

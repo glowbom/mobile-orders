@@ -85,6 +85,42 @@ class CheckoutFragment : Fragment() {
             }
         })
 
+        phoneInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (s.length != 0) {
+                    AppManager.instance.phone = phoneInput.text.toString()
+                }
+            }
+        })
+
+        addressInput.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
+            }
+
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (s.length != 0) {
+                    AppManager.instance.address = addressInput.text.toString()
+                }
+            }
+        })
+
         clearButton.setOnClickListener {
             AppManager.instance.clear()
             checkoutViewModel.refresh()
@@ -92,36 +128,51 @@ class CheckoutFragment : Fragment() {
 
         orderButton.setOnClickListener {
             if (AppManager.instance.name != "") {
-                if (AppManager.instance.getData().count() > 0) {
-                    var data = AppManager.instance.name + "," + AppManager.instance.getTotal().toString() + ","
+                if (AppManager.instance.phone != "") {
+                    if (AppManager.instance.address != "") {
+                        if (AppManager.instance.getData().count() > 0) {
+                            var data = AppManager.instance.name + "," + AppManager.instance.getTotal().toString() + "," + AppManager.instance.address + "," + AppManager.instance.phone + ","
 
+                            AppManager.instance.getData().forEach {
+                                data += (it.itemId + ",");
+                                if (it.choice1 != "") {
+                                    data += (it.choice1 + ",");
+                                }
 
-                    AppManager.instance.getData().forEach {
-                        data += (it.itemId + ",");
+                                if (it.choice2 != "") {
+                                    data += (it.choice2 + ",");
+                                }
+                            }
+
+                            data = data.substring(0, data.length - 1)
+
+                            itemsService.addOrder(data)
+                                .subscribeOn(Schedulers.newThread())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribeWith(object: DisposableSingleObserver<Success>() {
+                                    override fun onSuccess(success: Success) {
+                                        dispose()
+                                    }
+
+                                    override fun onError(e: Throwable) {
+                                        e.printStackTrace()
+                                        dispose()
+                                    }
+                                })
+
+                            AppManager.instance.clear()
+                            checkoutViewModel.refresh()
+
+                            showMessage("Thank you, " + AppManager.instance.name + "!", "Your order has been placed. See you soon!")
+                        } else {
+                            showMessage("Order", "You didn't order anything.")
+                        }
+
+                    } else {
+                        showMessage("Order", "Please enter your address.")
                     }
-
-                    data = data.substring(0, data.length - 1)
-
-                    itemsService.addOrder(data)
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(object: DisposableSingleObserver<Success>() {
-                            override fun onSuccess(success: Success) {
-                                dispose()
-                            }
-
-                            override fun onError(e: Throwable) {
-                                e.printStackTrace()
-                                dispose()
-                            }
-                        })
-
-                    AppManager.instance.clear()
-                    checkoutViewModel.refresh()
-
-                    showMessage("Thank you, " + AppManager.instance.name + "!", "Your order has been placed. See you soon!")
                 } else {
-                    showMessage("Order", "You didn't order anything.")
+                    showMessage("Order", "Please enter your phone.")
                 }
             } else {
                 showMessage("Order", "Please enter your name.")
@@ -153,6 +204,18 @@ class CheckoutFragment : Fragment() {
         checkoutViewModel.name.observe(viewLifecycleOwner, Observer { name ->
             name?.let {
                 nameInput.setText(name)
+            }
+        })
+
+        checkoutViewModel.phone.observe(viewLifecycleOwner, Observer { phone ->
+            phone?.let {
+                phoneInput.setText(phone)
+            }
+        })
+
+        checkoutViewModel.address.observe(viewLifecycleOwner, Observer { address ->
+            address?.let {
+                addressInput.setText(address)
             }
         })
     }

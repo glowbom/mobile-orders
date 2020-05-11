@@ -67,8 +67,11 @@ class DetailFragment : Fragment() {
 
 
         orderButton.setOnClickListener() {
+            val item = currentItem!!.copy()
+            item.choice1 = choice1.selectedItem.toString()
+            item.choice2 = choice2.selectedItem.toString()
             currentItem.let {
-                AppManager.instance.addOrder(currentItem!!)
+                AppManager.instance.addOrder(item)
                 updateTotalOrders()
                 findNavController().popBackStack()
             }
