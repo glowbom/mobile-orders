@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.glowbom.mobileorders.R
 import com.glowbom.mobileorders.databinding.ItemListBinding
+import com.glowbom.mobileorders.model.AppManager
 import com.glowbom.mobileorders.model.Item
 import kotlinx.android.synthetic.main.item_list.view.*
 
@@ -43,6 +44,12 @@ class ListAdapter(val list: ArrayList<Item>) : RecyclerView.Adapter<ListAdapter.
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.view.item = list[position]
         holder.view.listener = this
+
+        AppManager.instance.settings?.let {
+            if (it.thumnails != null && it.thumnails) {
+                holder.view.imageView.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onItemClicked(v: View) {

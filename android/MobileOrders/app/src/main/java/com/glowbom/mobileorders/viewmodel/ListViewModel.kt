@@ -9,10 +9,7 @@ package com.glowbom.mobileorders.viewmodel
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import com.glowbom.mobileorders.model.Data
-import com.glowbom.mobileorders.model.Item
-import com.glowbom.mobileorders.model.ItemDatabase
-import com.glowbom.mobileorders.model.ItemsApiService
+import com.glowbom.mobileorders.model.*
 import com.glowbom.mobileorders.util.NotificationsHelper
 import com.glowbom.mobileorders.util.SharedPreferencesHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -76,7 +73,9 @@ class ListViewModel(application: Application) : BaseViewModel(application) {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object: DisposableSingleObserver<Data>() {
                     override fun onSuccess(newItems: Data) {
+                        AppManager.instance.settings = newItems.settings
                         storeItemsLocally(newItems.data)
+
                         //Toast.makeText(getApplication(), "Items retrieved from endpoint", Toast.LENGTH_SHORT).show()
                         NotificationsHelper(getApplication()).createNotification()
                     }
