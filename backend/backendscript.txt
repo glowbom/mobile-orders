@@ -42,9 +42,7 @@ function doGet(e) {
       return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
     }
   } else {
-    var ss = SpreadsheetApp.getActive();
-    var sheet = ss.getSheetByName('Products');
-    return getProducts(sheet);
+    return getProducts();
   }
 }
 
@@ -84,9 +82,13 @@ function getProductList() {
   return jo.data;
 }
 
-function getProducts(sheet) {
+function getProducts() {
+  var ss = SpreadsheetApp.getActive();
+  var sheet = ss.getSheetByName('Products');
+  
   var jo = {
-    data: []
+    data: [],
+    settings: []
   };
   
   var rows = sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).getValues();
@@ -101,6 +103,9 @@ function getProducts(sheet) {
     record['price'] = dataRow[2];
     record['count'] = dataRow[3];
     record['media'] = media;
+    record['choice1'] = dataRow[5];
+    record['choice2'] = dataRow[6];
+    record['category'] = dataRow[7];
     
     if (media && media.includes('youtube.com/watch')) {
       media = media.replace('youtube.com/watch?v=', 'youtube.com/embed/');
@@ -110,14 +115,26 @@ function getProducts(sheet) {
       record['media'] = media;
     }
     
-    //record['choice1'] = dataRow[5];
-    //record['choice2'] = dataRow[6];
-    //record['choice3'] = dataRow[7];
-    //record['tips'] = dataRow[8];
-    //record['tax'] = dataRow[9];
-    
     jo.data.push(record);
   } 
+  
+    var sheetSettings = ss.getSheetByName('Settings');
+    rows = sheetSettings.getRange(2, 1, sheetSettings.getLastRow(), sheetSettings.getLastColumn()).getValues();
+    dataRow = rows[0];
+    
+    var settings = {}
+    settings['thumnails'] = dataRow[0];
+    settings['name'] = dataRow[1];
+    settings['address'] = dataRow[2];
+    settings['phonenumber'] = dataRow[3];
+    settings['pastorders'] = dataRow[4];
+    settings['notifications'] = dataRow[5];
+    settings['categories'] = dataRow[6];
+    settings['choice1'] = dataRow[7];
+    settings['choice2'] = dataRow[8];
+    
+    
+    jo.settings = settings;
   
   var result = JSON.stringify(jo);
   
