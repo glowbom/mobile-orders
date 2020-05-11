@@ -20,7 +20,32 @@ data class Success(
 
 data class Data(
     @SerializedName("data")
-    val data: List<Item>
+    val data: List<Item>,
+    @SerializedName("settings")
+    val settings: Settings
+) {
+
+}
+
+data class Settings(
+    @SerializedName("thumnails")
+    val thumnails: Boolean?,
+    @SerializedName("name")
+    val name: Boolean?,
+    @SerializedName("address")
+    val address: Boolean?,
+    @SerializedName("phonenumber")
+    val phonenumber: Boolean?,
+    @SerializedName("pastorders")
+    val pastorders: Boolean?,
+    @SerializedName("notifications")
+    val notifications: Boolean?,
+    @SerializedName("categories")
+    val categories: Boolean?,
+    @SerializedName("choice1")
+    val choice1: Boolean?,
+    @SerializedName("choice2")
+    val choice2: Boolean?
 ) {
 
 }
@@ -57,7 +82,16 @@ data class Item(
 
     @ColumnInfo(name = "image_url")
     @SerializedName("media")
-    val imageUrl: String?
+    val imageUrl: String?,
+
+    @SerializedName("choice1")
+    val choice1: String?,
+
+    @SerializedName("choice2")
+    val choice2: String?,
+
+    @SerializedName("category")
+    val category: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

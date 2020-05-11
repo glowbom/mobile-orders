@@ -10,7 +10,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val EXTRA_URL = "YOUR_PART_URL_STARTING_WITH_MACROS"
+const val EXTRA_URL = "macros/s/AKfycbwcZDPrkc3UrVpLGr8yo6IJBf2IaP5_nmz8FS_deLnY50U4MQoO/exec"
 
 interface ItemsApi {
 
