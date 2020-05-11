@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.webkit.WebChromeClient
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -95,6 +96,41 @@ class DetailFragment : Fragment() {
                 webview.webChromeClient = WebChromeClient()
 
                 currentItem = item
+
+
+                currentItem.let {
+                    it?.choice1.let {
+                        if (it != null) {
+                            choice1.visibility = View.VISIBLE
+                            val options = it.split(", ")
+
+                            // Create an ArrayAdapter using a simple spinner layout and languages array
+                            val aa = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+                            // Set layout to use when the list of choices appear
+                            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            // Set Adapter to Spinner
+                            choice1!!.setAdapter(aa)
+                        }
+                    }
+                }
+
+                currentItem.let {
+                    it?.choice2.let {
+                        if (it != null) {
+                            choice2.visibility = View.VISIBLE
+                            val options = it.split(", ")
+
+                            // Create an ArrayAdapter using a simple spinner layout and languages array
+                            val aa = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+                            // Set layout to use when the list of choices appear
+                            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            // Set Adapter to Spinner
+                            choice2!!.setAdapter(aa)
+                        }
+                    }
+                }
+
+
                 dataBinding.item = it
                 context?.let {
                     image.loadImage(item.imageUrl, getProgressDrawable(it))

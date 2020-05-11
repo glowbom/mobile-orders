@@ -69,6 +69,22 @@
                 android:text="@{item.description}"
                 style="@style/Text"/>
 
+            <Spinner
+                android:id="@+id/choice1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/choice2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:visibility="gone"/>
+
             <Button
                 android:id="@+id/orderButton"
                 android:layout_width="200dp"
