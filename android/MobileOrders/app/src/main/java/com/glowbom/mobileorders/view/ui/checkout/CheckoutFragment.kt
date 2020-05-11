@@ -15,23 +15,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.glowbom.mobileorders.R
-import com.glowbom.mobileorders.model.AppManager
-import com.glowbom.mobileorders.model.Data
-import com.glowbom.mobileorders.model.ItemsApiService
-import com.glowbom.mobileorders.model.Success
-import com.glowbom.mobileorders.util.NotificationsHelper
+import com.glowbom.mobileorders.model.*
 import com.glowbom.mobileorders.view.ui.orders.ListAdapter
 import com.glowbom.mobileorders.viewmodel.CheckoutViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_checkout.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class CheckoutFragment : Fragment() {
@@ -160,10 +159,12 @@ class CheckoutFragment : Fragment() {
                                     }
                                 })
 
-                            AppManager.instance.clear()
-                            checkoutViewModel.refresh()
+                            storeInTheDatabase(AppManager.instance.getData())
 
                             showMessage("Thank you, " + AppManager.instance.name + "!", "Your order has been placed. See you soon!")
+
+                            AppManager.instance.clear()
+                            checkoutViewModel.refresh()
                         } else {
                             showMessage("Order", "You didn't order anything.")
                         }
@@ -182,6 +183,20 @@ class CheckoutFragment : Fragment() {
         observeViewModel()
 
         checkoutViewModel.refresh()
+    }
+
+    private fun storeInTheDatabase(newItems: List<Item>) {
+        GlobalScope.launch {
+            val pattern = "yyyy-MM-dd"
+            val simpleDateFormat = SimpleDateFormat(pattern, Locale.US)
+            val date: String = simpleDateFormat.format(Date())
+            newItems.forEach {
+                it.category = date
+            }
+
+            val dao = CheckoutDatabase(requireContext()).itemDao()
+            dao.insertAll(*newItems.toTypedArray())
+        }
     }
 
     private fun showMessage(title: String, message: String) {

@@ -9,9 +9,12 @@ package com.glowbom.mobileorders.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.glowbom.mobileorders.model.AppManager
+import com.glowbom.mobileorders.model.CheckoutDatabase
 import com.glowbom.mobileorders.model.Item
 
 class CheckoutViewModel : ViewModel() {
+
+
 
     val items = MutableLiveData<List<Item>>()
 

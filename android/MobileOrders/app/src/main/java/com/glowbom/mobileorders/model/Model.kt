@@ -91,7 +91,7 @@ data class Item(
     var choice2: String?,
 
     @SerializedName("category")
-    val category: String?
+    var category: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
