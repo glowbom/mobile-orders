@@ -23,7 +23,7 @@ function doGet(e) {
           elemens.push(prods[parseInt(order[i])].product);
         }
         catch(err) {
-          // it's ok to do nothing
+          elemens.push(order[i]);
         }
       }
     
