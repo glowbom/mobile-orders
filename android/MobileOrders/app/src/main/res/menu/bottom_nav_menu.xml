@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Checkout" />
 
+    <item
+        android:id="@+id/navigation_order"
+        android:icon="@drawable/ic_details"
+        android:title="Orders" />
+
 </menu>

@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_checkout" />
 
     <fragment
+        android:id="@+id/navigation_order"
+        android:name="com.glowbom.mobileorders.view.ui.orders.OrderFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
         android:id="@+id/navigation_list_fragment"
         android:name="com.glowbom.mobileorders.view.ui.orders.ListFragment"
         android:label="Menu" >
