@@ -17,114 +17,120 @@
             type="com.glowbom.mobileorders.model.ItemPalette" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@{palette.color}"
-        tools:context=".view.ui.orders.DetailFragment">
-
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:minHeight="200dp"/>
-
-        <WebView
-            android:background="#fff"
-            android:id="@+id/webview"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:scaleType="fitCenter"
-            />
-
-        <LinearLayout
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/webview"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="12dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:id="@+id/name"
-                android:text="@{item.title}"
-                style="@style/Title"/>
+            android:background="@{palette.color}"
+            tools:context=".view.ui.orders.DetailFragment">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="12dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:id="@+id/temperament"
-                android:text="@{item.description}"
-                style="@style/Text"/>
 
-            <Spinner
-                android:id="@+id/choice1"
-                android:layout_width="200dp"
+            <ImageView
+                android:id="@+id/image"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:visibility="gone"/>
+                android:scaleType="fitCenter"
+                android:minHeight="200dp"/>
 
-            <Spinner
-                android:id="@+id/choice2"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:visibility="gone"/>
-
-            <Button
-                android:id="@+id/orderButton"
-                android:layout_width="200dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="12dp"
+            <WebView
                 android:background="#fff"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:text="Order"
+                android:id="@+id/webview"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:scaleType="fitCenter"
                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="12dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:id="@+id/purpose"
-                android:textStyle="bold"
-                android:text="@{String.format(@string/currency_format, item.price)}"
-                style="@style/Text"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/webview"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/name"
+                    android:text="@{item.title}"
+                    style="@style/Title"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/temperament"
+                    android:text="@{item.description}"
+                    style="@style/Text"/>
+
+                <Spinner
+                    android:id="@+id/choice1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:visibility="gone"/>
+
+                <Spinner
+                    android:id="@+id/choice2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/orderButton"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:background="#fff"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="Order"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/purpose"
+                    android:textStyle="bold"
+                    android:text="@{String.format(@string/currency_format, item.price)}"
+                    style="@style/Text"/>
 
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="12dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:id="@+id/total"
-                android:text="Total Ordered: $0.00"
-                style="@style/Text"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/total"
+                    android:text="Total Ordered: $0.00"
+                    style="@style/Text"/>
+            </LinearLayout>
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
 
 </layout>
 

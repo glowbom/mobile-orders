@@ -55,48 +55,59 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp" />
 
-    <TextView
-        android:id="@+id/text_total_ordered"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="20sp"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_total_ordered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="20sp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginTop="40dp">
-        <Button
-            android:id="@+id/orderButton"
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Place Order"
-            />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+                <Button
+                    android:id="@+id/orderButton"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Place Order"
+                    />
 
-        <Button
-            android:id="@+id/clearButton"
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:background="#fff"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Cancel"
-            />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/clearButton"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:background="#fff"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Cancel"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 
 </LinearLayout>
