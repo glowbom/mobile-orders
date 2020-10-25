@@ -2,7 +2,7 @@
 
 Mobile Orders can help business owners get set up a mobile ordering app using a Google Sheet. No programming skills required. No registration needed.
 
-[Get Started](https://glowbom.com/help/)
+[Get Started](https://glowbom.com/store/)
 
 ## Tech Stack
 
