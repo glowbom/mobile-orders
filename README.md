@@ -6,7 +6,7 @@ Glowbom Store can help you set up a simple store app connected to a Google Sheet
 
 ## Step-by-Step Installation Instructions
 
-# Step 1
+### Step 1
 
 ## Feedback
 
