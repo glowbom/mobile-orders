@@ -4,8 +4,13 @@ Glowbom Store can help you set up a simple store app connected to a Google Sheet
 
 [Get Started](https://glowbom.com/store/)
 
-## Here's how the store app looks like...
-[![Here's how it works...](https://glowbom.com/store/img/store1.png)](https://twitter.com/GlowbomCorp/status/1316354026565402625)
+### Create your own store app without code.
+
+Collect orders using a Google Sheet.
+
+[![Here's how it works...](https://glowbom.com/store/img/store1.png)](https://glowbom.com/)
+
+Please follow the instructions below.
 
 ## Step-by-Step Setup Instructions
 
