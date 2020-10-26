@@ -9,13 +9,22 @@ Glowbom Store can help you set up a simple store app connected to a Google Sheet
 Collect orders using a Google Sheet.
 
 [![Here's how it works...](https://glowbom.com/store/img/store1.png)](https://glowbom.com/)
-Please follow the instructions below.
 
 ## Step-by-Step Setup Instructions
 
 ### Step 1
 
+Open [Glowbom Chat](https://glowbom.com/chat/) and create an account if you haven't done it already.
 
+### Step 2
+
+Press **+ New Project** at the top right corner:
+
+[![Step 2](https://glowbom.com/store/img/qstep1.png)](https://glowbom.com/)
+
+Or press the little mic button and say: **"Create an app."**
+
+[![Step 2](https://glowbom.com/store/img/qstep2.png)](https://glowbom.com/)
 
 ## Feedback
 
