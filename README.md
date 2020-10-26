@@ -1,4 +1,4 @@
-## Mobile Orders
+## Glowbom Store
 
 Mobile Orders can help business owners set up a mobile ordering app powered by Google Sheets. No programming skills required.
 
