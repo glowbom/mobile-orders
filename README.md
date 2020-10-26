@@ -26,6 +26,14 @@ Or press the little mic button and say: **"Create an app."**
 
 [![Step 2](https://glowbom.com/store/img/qstep2.png)](https://glowbom.com/)
 
+### Step 3
+
+Choose **Store** and press **Select**:
+
+[![Step 3](https://glowbom.com/store/img/qstep3.png)
+
+Or say: **"Create a store app."**
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
