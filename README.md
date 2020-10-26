@@ -14,7 +14,7 @@ Collect orders using a Google Sheet.
 
 ### Step 1
 
-Open [Glowbom Chat](https://glowbom.com/chat/) and create an account if you haven't done it already.
+Open [Glowbom](https://glowbom.com/chat/) and create an account if you haven't done it already.
 
 ### Step 2
 
