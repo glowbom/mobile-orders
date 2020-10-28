@@ -191,6 +191,20 @@ Copy **Current web app URL**:
 
 [![Picture](https://glowbom.com/store/img/qstep13-5.png)](https://glowbom.com/)
 
+### Step 14
+
+Paste the **Current web app URL** into **Orders form link**:
+
+[![Picture](https://glowbom.com/store/img/qstep14.png)](https://glowbom.com/)
+
+Run the project again and submit the shipping information:
+
+[![Picture](https://glowbom.com/store/img/qstep14-2.png)](https://glowbom.com/)
+
+The shipping information should appear in the Google Sheet:
+
+[![Picture](https://glowbom.com/store/img/qstep14-3.png)](https://glowbom.com/)
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
