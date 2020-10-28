@@ -114,6 +114,55 @@ Clear everything inside the script window:
 
 Copy a server script:
 
+```
+          function doGet(e) {
+            if (e.parameters.data) {
+              var data = e.parameter.data;
+              
+              var ss = SpreadsheetApp.getActive();
+              var sheet = ss.getSheetByName("Orders");
+              
+              var responses = data.split(';');
+              
+              if (responses.length == 5) {
+              
+                var elemens = [
+                  responses[0],
+                  responses[1],
+                  responses[2],
+                  responses[3],
+                ];
+                  
+                var answers = responses[4].split(', ');
+                  
+                for (var i = 0; i < answers.length; i++) {
+                  elemens.push(answers[i]);
+                }
+                  
+                sheet.appendRow(elemens);
+                  
+                var result = JSON.stringify({ 
+                  success: true
+                });
+            
+                return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+              } else {
+                var result = JSON.stringify({ 
+                  success: false
+                });
+            
+                return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+              }
+            } else {
+              var result = JSON.stringify({ 
+                  success: false
+                });
+            
+                return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+            }
+          }
+```
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
