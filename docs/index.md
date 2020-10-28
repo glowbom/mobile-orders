@@ -1,37 +1,252 @@
-## Welcome to GitHub Pages
+## Glowbom Store
 
-You can use the [editor on GitHub](https://github.com/Glowbom/mobile-orders/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Glowbom Store can help you set up a simple store app connected to a Google Sheet. No programming skills required.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[Get Started](https://glowbom.com/)
 
-### Markdown
+### Create your own store app without code.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Collect orders using a Google Sheet.
 
-```markdown
-Syntax highlighted code block
+[![Here's how it works...](https://glowbom.com/store/img/store1.png)](https://glowbom.com/)
 
-# Header 1
-## Header 2
-### Header 3
+## Step-by-Step Setup Instructions
 
-- Bulleted
-- List
+### Step 1
 
-1. Numbered
-2. List
+Open [**Glowbom**](https://glowbom.com/chat/) and create an account if you haven't done it already.
 
-**Bold** and _Italic_ and `Code` text
+### Step 2
 
-[Link](url) and ![Image](src)
+Press **+ New Project** at the top right corner:
+
+[![Step 2](https://glowbom.com/store/img/qstep1.png)](https://glowbom.com/)
+
+Or press the little mic button and say: **"Create an app."**
+
+[![Step 2](https://glowbom.com/store/img/qstep2.png)](https://glowbom.com/)
+
+### Step 3
+
+Choose **Store** and press **Select**:
+
+[![Step 3](https://glowbom.com/store/img/qstep3.png)](https://glowbom.com/)
+
+Or say: **"Create a store app."**
+
+### Step 4
+
+Enter the project name and press **Create project**:
+
+[![Step 3](https://glowbom.com/store/img/qstep4.png)](https://glowbom.com/)
+
+Or say: **"Create a store app called..."** with the name of your project.
+
+### Step 5
+
+To add and modify products, press the little pencil button:
+
+[![Step 3](https://glowbom.com/store/img/qstep5.png)](https://glowbom.com/)
+
+Or say: **"Open an editor."**
+
+### Step 6
+
+By default, you have 4 products. To add a new product, press the "+" button:
+
+[![Step 3](https://glowbom.com/store/img/qstep6.png)](https://glowbom.com/)
+
+To edit the product, press the little pencil button.
+
+To remove the product, press the remove button.
+
+To close the editor, press the cross button at the top center.
+
+### Step 7
+
+Fill out the title, price, description, and image URL fields to add or edit the product:
+
+[![Picture](https://glowbom.com/store/img/qstep7.png)](https://glowbom.com/)
+
+And press the **"Save"** button.
+
+### Step 8
+
+Press the "Play" button on the top right to run the project:
+
+[![Picture](https://glowbom.com/store/img/qstep10.png)](https://glowbom.com/)
+
+Or say: **"Launch the project please."**
+
+Press the "Stop" button on the top right to stop the project:
+
+[![Picture](https://glowbom.com/store/img/qstep10-2.png)](https://glowbom.com/)
+
+Or say: **"Stop the project please."**
+
+### Step 9
+
+To customize your survey, open the project settings by clicking the small gear button on the bottom left:
+
+[![Picture](https://glowbom.com/store/img/qstep8.png)](https://glowbom.com/)
+
+You can choose your app color, collect name, phone, or shipping address, and also change the "thank you" message:
+
+[![Picture](https://glowbom.com/store/img/qstep8-2.png)](https://glowbom.com/)
+
+To collect orders using a Google Sheet, press the **"Create Form"** button.
+
+### Step 10
+
+Make your own copy of **"Store"** Google Sheet by going to **File->Make a copy**:
+
+[![Picture](https://glowbom.com/store/img/qstep12.png)](https://glowbom.com/)
+
+Open the editor by going to **Tools->Script editor**:
+
+[![Picture](https://glowbom.com/store/img/qstep12-2.png)](https://glowbom.com/)
+
+### Step 11
+
+Clear everything inside the script window:
+
+[![Picture](https://glowbom.com/store/img/qstep12-3.png)](https://glowbom.com/)
+
+Copy a server script:
+
+```javascript
+function doGet(e) {
+  if (e.parameters.data) {
+    var data = e.parameter.data;
+
+    var ss = SpreadsheetApp.getActive();
+    var sheet = ss.getSheetByName("Orders");
+
+    var responses = data.split(';');
+
+    if (responses.length == 5) {
+      var elemens = [
+        responses[0],
+        responses[1],
+        responses[2],
+        responses[3],
+      ];
+
+      var answers = responses[4].split(', ');
+
+      for (var i = 0; i < answers.length; i++) {
+        elemens.push(answers[i]);
+      }
+
+      sheet.appendRow(elemens);
+
+      var result = JSON.stringify({success: true});
+
+      return ContentService.createTextOutput(result)
+          .setMimeType(ContentService.MimeType.JSON);
+    } else {
+      var result = JSON.stringify({success: false});
+
+      return ContentService.createTextOutput(result)
+          .setMimeType(ContentService.MimeType.JSON);
+    }
+  } else {
+    var result = JSON.stringify({success: false});
+
+    return ContentService.createTextOutput(result)
+        .setMimeType(ContentService.MimeType.JSON);
+  }
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Step 12
 
-### Jekyll Themes
+Paste the script code inside the editor and press **Save**:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Glowbom/mobile-orders/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+[![Picture](https://glowbom.com/store/img/qstep12-4.png)](https://glowbom.com/)
 
-### Support or Contact
+Name the project and press **Ok**:
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[![Picture](https://glowbom.com/store/img/qstep12-5.png)](https://glowbom.com/)
+
+### Step 13
+
+Publish the script by pressing **Publish->Deploy as web app...**:
+
+[![Picture](https://glowbom.com/store/img/qstep13.png)](https://glowbom.com/)
+
+Choose **Anyone, even anonymous** in **Who has access to the app** and press **Deploy**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-2.png)](https://glowbom.com/)
+
+Press **Review Permissions**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-3.png)](https://glowbom.com/)
+
+Press **Allow**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-4.png)](https://glowbom.com/)
+
+Copy **Current web app URL**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-5.png)](https://glowbom.com/)
+
+### Step 14
+
+Paste the **Current web app URL** into **Orders form link**:
+
+[![Picture](https://glowbom.com/store/img/qstep14.png)](https://glowbom.com/)
+
+Run the project again and submit the shipping information:
+
+[![Picture](https://glowbom.com/store/img/qstep14-2.png)](https://glowbom.com/)
+
+The shipping information should appear in the Google Sheet:
+
+[![Picture](https://glowbom.com/store/img/qstep14-3.png)](https://glowbom.com/)
+
+### Step 15
+
+Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
+
+[![Picture](https://glowbom.com/store/img/qstep9.png)](https://glowbom.com/)
+
+Or say: **"Export code please."**
+
+### Step 16
+
+You download the data file **store.glowbom** and an archive that has two folders **store-build-web** and **store-source-flutter**:
+
+[![Picture](https://glowbom.com/store/img/qstep11.png)](https://glowbom.com/)
+
+The **store-build-web** folder contains a ready-to-deploy web app.
+
+The **store-source-flutter** folder contains the app source code that can be compiled to iOS, Android, and a web app.
+
+Replace the **store-build-web/assets/assets/store.glowbom** file with your **store.glowbom** file:
+
+[![Picture](https://glowbom.com/store/img/qstep11-2.png)](https://glowbom.com/)
+
+Replace the **store-source-flutter/app/assets/store.glowbom** file with your **store.glowbom** file:
+
+[![Picture](https://glowbom.com/store/img/qstep11-3.png)](https://glowbom.com/)
+
+### Step 17
+
+The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
+
+We recommend using [**Netlify**](https://www.netlify.com/) where you can drag & drop **store-build-web** folder to dashboard. The web app will be deployed and the domain will be given to you. Optionally, the web app can be connected with the custom domain/subdomain.
+
+Create an account on [**Netlify**](https://www.netlify.com/) to get started.
+
+### Mobile Apps
+
+The **store-source-flutter** folder contains app source code that can be compiled to **iOS**, **Android**, and a web app.
+
+To compile the source code, you need to install [**Flutter**](https://flutter.dev/), a software development kit created by Google.
+
+Open [**Flutter**](https://flutter.dev/).
+
+## Feedback
+
+If you have any questions or feedback, please let us know **support@glowbom.com**.
