@@ -14,7 +14,7 @@ Collect orders using a Google Sheet.
 
 ### Step 1
 
-Open [Glowbom](https://glowbom.com/chat/) and create an account if you haven't done it already.
+Open [**Glowbom**](https://glowbom.com/chat/) and create an account if you haven't done it already.
 
 ### Step 2
 
@@ -235,15 +235,15 @@ Replace the **store-source-flutter/app/assets/store.glowbom** file with your **s
 
 The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
-We recommend using **Netlify** where you can drag & drop **store-build-web** folder to dashboard. The web app will be deployed and the domain will be given to you. Optionally, the web app can be connected with the custom domain/subdomain.
+We recommend using [**Netlify**](https://www.netlify.com/) where you can drag & drop **store-build-web** folder to dashboard. The web app will be deployed and the domain will be given to you. Optionally, the web app can be connected with the custom domain/subdomain.
 
-Create an account on [Netlify](https://www.netlify.com/) to get started.
+Create an account on [**Netlify**](https://www.netlify.com/) to get started.
 
 The **store-source-flutter** folder contains app source code that can be compiled to iOS, Android, and a web app.
 
-To compile the source code, you need to install **Flutter**, a software development kit created by Google:
+To compile the source code, you need to install [**Flutter**](https://flutter.dev/), a software development kit created by Google:
 
-Open [Flutter](https://flutter.dev/).
+Open [**Flutter**](https://flutter.dev/).
 
 ## Feedback
 
