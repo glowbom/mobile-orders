@@ -205,6 +205,32 @@ The shipping information should appear in the Google Sheet:
 
 [![Picture](https://glowbom.com/store/img/qstep14-3.png)](https://glowbom.com/)
 
+### Step 15
+
+Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
+
+[![Picture](https://glowbom.com/store/img/qstep9.png)](https://glowbom.com/)
+
+Or say: **"Export code please."**
+
+### Step 16
+
+You download the data file **store.glowbom** and an archive that has two folders **store-build-web** and **store-source-flutter**:
+
+[![Picture](https://glowbom.com/store/img/qstep11.png)](https://glowbom.com/)
+
+The **store-build-web** folder contains a ready-to-deploy web app.
+
+The **store-source-flutter** folder contains the app source code that can be compiled to iOS, Android, and a web app.
+
+Replace the **store-build-web/assets/assets/store.glowbom** file with your **store.glowbom** file:
+
+[![Picture](https://glowbom.com/store/img/qstep11-2.png)](https://glowbom.com/)
+
+Replace the **store-source-flutter/app/assets/store.glowbom** file with your **store.glowbom** file:
+
+[![Picture](https://glowbom.com/store/img/qstep11-3.png)](https://glowbom.com/)
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
