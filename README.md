@@ -233,7 +233,7 @@ Replace the **store-source-flutter/app/assets/store.glowbom** file with your **s
 
 ### Step 17
 
-#### Deploying and hosting
+##### Deploying and hosting a web app:
 
 The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
@@ -241,7 +241,7 @@ We recommend using [**Netlify**](https://www.netlify.com/) where you can drag & 
 
 Create an account on [**Netlify**](https://www.netlify.com/) to get started.
 
-#### Building a mobile app for iOS and Android
+##### Building a mobile app for iOS and Android:
 
 The **store-source-flutter** folder contains app source code that can be compiled to iOS, Android, and a web app.
 
