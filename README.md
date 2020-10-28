@@ -84,6 +84,18 @@ Press the "Stop" button on the top right to stop the project:
 
 Or say: **"Stop the project please."**
 
+### Step 9
+
+To customize your survey, open the project settings by clicking the small gear button on the bottom left:
+
+[![Picture](https://glowbom.com/store/img/qstep8.png)](https://glowbom.com/)
+
+You can choose your app color, collect name, phone, or shipping address, and also change the "thank you" message:
+
+[![Picture](https://glowbom.com/store/img/qstep8-2.png)
+
+To collect orders using a Google Sheet, press the **"Create Form"** button.
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
