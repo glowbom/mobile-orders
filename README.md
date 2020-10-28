@@ -96,6 +96,16 @@ You can choose your app color, collect name, phone, or shipping address, and als
 
 To collect orders using a Google Sheet, press the **"Create Form"** button.
 
+### Step 10
+
+Make your own copy of **"Store"** Google Sheet by going to **File->Make a copy**:
+
+[![Picture](https://glowbom.com/store/img/qstep12.png)](https://glowbom.com/)
+
+Open the editor by going to **Tools->Script editor**:
+
+[![Picture](https://glowbom.com/store/img/qstep12-2.png)](https://glowbom.com/)
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
