@@ -50,6 +50,18 @@ To add and modify products, press the little pencil button:
 
 Or say: **"Open an editor."**
 
+### Step 6
+
+By default, you have 4 products. To add a new product, press the "+" button:
+
+[![Step 3](https://glowbom.com/store/img/qstep6.png)](https://glowbom.com/)
+
+To edit the product, press the little pencil button.
+
+To remove the product, press the remove button.
+
+To close the editor, press the cross button at the top center.
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
