@@ -106,6 +106,14 @@ Open the editor by going to **Tools->Script editor**:
 
 [![Picture](https://glowbom.com/store/img/qstep12-2.png)](https://glowbom.com/)
 
+### Step 11
+
+Clear everything inside the script window:
+
+[![Picture](https://glowbom.com/store/img/qstep12-3.png)](https://glowbom.com/)
+
+Copy a server script:
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
