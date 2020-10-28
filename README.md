@@ -92,7 +92,7 @@ To customize your survey, open the project settings by clicking the small gear b
 
 You can choose your app color, collect name, phone, or shipping address, and also change the "thank you" message:
 
-[![Picture](https://glowbom.com/store/img/qstep8-2.png)
+[![Picture](https://glowbom.com/store/img/qstep8-2.png)](https://glowbom.com/)
 
 To collect orders using a Google Sheet, press the **"Create Form"** button.
 
