@@ -34,6 +34,14 @@ Choose **Store** and press **Select**:
 
 Or say: **"Create a store app."**
 
+### Step 4
+
+Enter the project name and press **Create project**:
+
+[![Step 3](https://glowbom.com/store/img/qstep4.png)](https://glowbom.com/)
+
+Or say: **"Create a store app called..."** with the name of your project.
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
