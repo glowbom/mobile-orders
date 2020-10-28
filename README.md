@@ -158,6 +158,7 @@ function doGet(e) {
   }
 }
 ```
+
 ### Step 12
 
 Paste the script code inside the editor and press **Save**:
@@ -167,6 +168,28 @@ Paste the script code inside the editor and press **Save**:
 Name the project and press **Ok**:
 
 [![Picture](https://glowbom.com/store/img/qstep12-5.png)](https://glowbom.com/)
+
+### Step 13
+
+Publish the script by pressing **Publish->Deploy as web app...**:
+
+[![Picture](https://glowbom.com/store/img/qstep13.png)](https://glowbom.com/)
+
+Choose **Anyone, even anonymous** in **Who has access to the app** and press **Deploy**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-2.png)](https://glowbom.com/)
+
+Press **Review Permissions**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-3.png)](https://glowbom.com/)
+
+Press **Allow**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-4.png)](https://glowbom.com/)
+
+Copy **Current web app URL**:
+
+[![Picture](https://glowbom.com/store/img/qstep13-5.png)](https://glowbom.com/)
 
 ## Feedback
 
