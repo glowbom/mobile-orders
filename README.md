@@ -62,6 +62,28 @@ To remove the product, press the remove button.
 
 To close the editor, press the cross button at the top center.
 
+### Step 7
+
+Fill out the title, price, description, and image URL fields to add or edit the product:
+
+[![Picture](https://glowbom.com/store/img/qstep7.png)](https://glowbom.com/)
+
+And press the **"Save"** button.
+
+### Step 8
+
+Press the "Play" button on the top right to run the project:
+
+[![Picture](https://glowbom.com/store/img/qstep10.png)](https://glowbom.com/)
+
+Or say: **"Launch the project please."**
+
+Press the "Stop" button on the top right to stop the project:
+
+[![Picture](https://glowbom.com/store/img/qstep10-2.png)](https://glowbom.com/)
+
+Or say: **"Stop the project please."**
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
