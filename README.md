@@ -2,7 +2,7 @@
 
 Glowbom Store can help you set up a simple store app connected to a Google Sheet. No programming skills required.
 
-[Get Started](https://glowbom.com/store/)
+[Get Started](https://glowbom.com/)
 
 ### Create your own store app without code.
 
