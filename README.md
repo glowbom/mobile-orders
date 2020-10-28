@@ -239,9 +239,9 @@ We recommend using [**Netlify**](https://www.netlify.com/) where you can drag & 
 
 Create an account on [**Netlify**](https://www.netlify.com/) to get started.
 
-### iOS and Android
+### Mobile Apps
 
-The **store-source-flutter** folder contains app source code that can be compiled to iOS, Android, and a web app.
+The **store-source-flutter** folder contains app source code that can be compiled to **iOS**, **Android**, and a web app.
 
 To compile the source code, you need to install [**Flutter**](https://flutter.dev/), a software development kit created by Google:
 
