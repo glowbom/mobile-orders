@@ -158,6 +158,15 @@ function doGet(e) {
   }
 }
 ```
+### Step 12
+
+Paste the script code inside the editor and press **Save**:
+
+[![Picture](https://glowbom.com/store/img/qstep12-4.png)](https://glowbom.com/)
+
+Name the project and press **Ok**:
+
+[![Picture](https://glowbom.com/store/img/qstep12-5.png)](https://glowbom.com/)
 
 ## Feedback
 
