@@ -42,6 +42,14 @@ Enter the project name and press **Create project**:
 
 Or say: **"Create a store app called..."** with the name of your project.
 
+### Step 5
+
+To add and modify products, press the little pencil button:
+
+[![Step 3](https://glowbom.com/store/img/qstep5.png)](https://glowbom.com/)
+
+Or say: **"Open an editor."**
+
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
