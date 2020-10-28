@@ -114,7 +114,7 @@ Clear everything inside the script window:
 
 Copy a server script:
 
-```
+```javascript
 function doGet(e) {
   if (e.parameters.data) {
     var data = e.parameter.data;
