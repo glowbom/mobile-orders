@@ -235,7 +235,7 @@ Replace the **store-source-flutter/app/assets/store.glowbom** file with your **s
 
 The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
-To publish the web app, we recommend using [**Netlify**](https://www.netlify.com/products/edge/). It allows you to drag & drop the web app folder directly to the dashboard. The web app deploys automatically, and you will get the app link shortly after that. Optionally, you will be able to connect the web app with the custom domain/subdomain.
+We recommend using [**Netlify**](https://www.netlify.com/products/edge/) to publish the web app. It allows you to drag & drop the web app folder directly to the dashboard. The web app deploys automatically, and you will get the app link shortly after that. Optionally, you will be able to connect the web app with the custom domain/subdomain.
 
 Create an account on [**Netlify**](https://www.netlify.com/products/edge/) to get started.
 
