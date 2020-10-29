@@ -223,17 +223,13 @@ Replace the **store-source-flutter/app/assets/store.glowbom** file with your **s
 
 The **store-build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting.
 
-We recommend using [**Netlify**](https://www.netlify.com/) where you can drag & drop **store-build-web** folder to dashboard. The web app will be deployed and the domain will be given to you. Optionally, the web app can be connected with the custom domain/subdomain.
+We recommend using [**Netlify**](https://www.netlify.com/products/edge/) to publish the web app. It allows you to drag & drop the web app folder directly to the dashboard. The web app deploys automatically, and you will get the app link shortly after that. Optionally, you will be able to connect the web app with the custom domain or subdomain.
 
-Create an account on [**Netlify**](https://www.netlify.com/) to get started.
+Create an account on [**Netlify**](https://www.netlify.com/products/edge/) to get started.
 
 ### Mobile Apps
 
-The **store-source-flutter** folder contains app source code that can be compiled to **iOS**, **Android**, and a web app.
-
-To compile the source code, you need to install [**Flutter**](https://flutter.dev/), a software development kit created by Google.
-
-Open [**Flutter**](https://flutter.dev/).
+To build the app for **iOS** or **Android**, you need to install [**Flutter**](https://flutter.dev/docs/get-started/install), a software development kit created by **Google**. The **store-source-flutter** folder contains the **Flutter** project that can be compiled to **iOS**, **Android**, and a web app.
 
 ## Feedback
 
