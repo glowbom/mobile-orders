@@ -6,7 +6,7 @@
 
 ### Create your own store without code.
 
-Collect orders using a Google Sheet.
+Use Google Sheets to collect orders.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/97621854-11b3c300-19e9-11eb-93ba-c9a3fc7f7cdf.png)](https://glowbom.com/)
 
