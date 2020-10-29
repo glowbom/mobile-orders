@@ -257,7 +257,7 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 - Paypal payments,
 - Square payments,
 - Airtable support,
-- Multiple layouts support,
+- Different layouts support,
 - Localization,
 - Categories support,
 - Search,
