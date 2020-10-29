@@ -258,6 +258,7 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 ### Upcoming Features
 
 Stripe payments,
+
 Paypal payments,
 Airtable support,
 Multiple layouts support,
