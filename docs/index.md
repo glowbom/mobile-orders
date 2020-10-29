@@ -246,23 +246,3 @@ To build the app for **iOS** or **Android**, you need to install [**Flutter**](h
 ## Feedback
 
 If you have any questions or feedback, please let us know **support@glowbom.com**.
-
-### How to contribute
-
-Everyone is welcome to contribute to **Glowbom Store**. There are several ways of getting involved and contributing including pull requests, reporting bugs, improving documentation and tutorials.
-
-### Upcoming Features
-
-- Stripe payments,
-- Paypal payments,
-- Airtable support,
-- Multiple layouts support,
-- Localization,
-- Categories support,
-- Search,
-- Saving past orders,
-- Notifications,
-- Analytics,
-- Multiple exporting options.
-
-Please file feature requests and bugs at the [issue tracker](https://github.com/Glowbom/mobile-orders/issues).
