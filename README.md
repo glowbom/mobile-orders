@@ -257,17 +257,16 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 
 ### Upcoming Features
 
-Stripe payments,
-
-Paypal payments,
-Airtable support,
-Multiple layouts support,
-Localization,
-Categories support,
-Search,
-Saving past orders,
-Notifications,
-Analytics,
-Multiple exporting options.
+- Stripe payments,
+- Paypal payments,
+- Airtable support,
+- Multiple layouts support,
+- Localization,
+- Categories support,
+- Search,
+- Saving past orders,
+- Notifications,
+- Analytics,
+- Multiple exporting options.
 
 Please file feature requests and bugs at the [issue tracker](https://github.com/Glowbom/mobile-orders/issues).
