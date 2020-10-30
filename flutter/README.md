@@ -2,7 +2,7 @@
 
 ### Step 1
 
-Open [**Glowbom**](https://glowbom.com/chat/) and create an account if you haven't done it already.
+Open [**Glowbom**](https://glowbom.com/chat/) and create an account if you haven't done it already. It's free and takes 30 seconds.
 
 ### Step 2
 
