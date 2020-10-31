@@ -2,7 +2,7 @@
 
 **Glowbom Store** can help you set up a simple e-commerce app connected to a Google Sheet. No programming skills required.
 
-[Get Started](https://glowbom.com/)
+[Get Started](https://glowbom.com/){:target="_blank" rel="noopener"}
 
 ### Create your own store without code.
 
