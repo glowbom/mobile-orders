@@ -15,7 +15,7 @@ class Products with ChangeNotifier {
       description: 'The chair combines comfort with bold contemporary forms.',
       price: 29.99,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2015/05/15/14/54/furniture-768766_960_720.jpg',
+          'https://glowbom.netlify.app/v1.1.3/img/presets/store/chair-small.jpg',
     ),
     Product(
       id: 'p2',
@@ -23,7 +23,7 @@ class Products with ChangeNotifier {
       description: 'This is the most comfortable couch ever.',
       price: 59.99,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2018/01/20/09/42/sofa-3094153_960_720.jpg',
+          'https://glowbom.netlify.app/v1.1.3/img/presets/store/couch-small.jpg',
     ),
     Product(
       id: 'p3',
@@ -31,7 +31,7 @@ class Products with ChangeNotifier {
       description: 'Perfect for family meals and dinner parties.',
       price: 19.99,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2015/04/20/13/38/furniture-731449_960_720.jpg',
+          'https://glowbom.netlify.app/v1.1.3/img/presets/store/table-small.jpg',
     ),
     Product(
       id: 'p4',
@@ -39,7 +39,7 @@ class Products with ChangeNotifier {
       description: 'It works with all mattresses.',
       price: 49.99,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2016/03/28/09/34/bedroom-1285156_960_720.jpg',
+          'https://glowbom.netlify.app/v1.1.3/img/presets/store/bed-small.jpg',
     ),
   ];
   List<Product> _items = defaultProducts;

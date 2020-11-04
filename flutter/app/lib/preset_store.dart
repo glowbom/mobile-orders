@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'dart:math';
+
+import './providers/product.dart';
 
 import './screens/checkout_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +19,10 @@ import './screens/products_overview_screen.dart';
 import './screens/splash_screen.dart';
 import './screens/user_products_screen.dart';
 import 'package:provider/provider.dart';
+
+void main() {
+  runApp(MobileOrdersApp(null, false));
+}
 
 class MobileOrdersApp extends StatefulWidget {
   static String title = 'Mobile Orders';
@@ -44,9 +51,59 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
       loadContentFromAssets().then(
         (value) => setState(() {
           _content = value;
+          List<Product> products = List<Product>();
+
+          List<dynamic> loadedProducts = value['products'];
+
+          for (int index = 0; index < loadedProducts.length; index++) {
+            Product product = Product(
+              description: loadedProducts[index]['description'],
+              id: loadedProducts[index]['id'],
+              title: loadedProducts[index]['title'],
+              price: loadedProducts[index]['price'],
+              imageUrl: loadedProducts[index]['imageUrl'],
+              isFavorite: loadedProducts[index]['isFavorite'],
+            );
+            products.add(product);
+          }
+
+          value['products'] = products;
         }),
       );
     }
+  }
+
+  int tintValue(int value, double factor) =>
+      max(0, min((value + ((255 - value) * factor)).round(), 255));
+
+  Color tintColor(Color color, double factor) => Color.fromRGBO(
+      tintValue(color.red, factor),
+      tintValue(color.green, factor),
+      tintValue(color.blue, factor),
+      1);
+
+  int shadeValue(int value, double factor) =>
+      max(0, min(value - (value * factor).round(), 255));
+
+  Color shadeColor(Color color, double factor) => Color.fromRGBO(
+      shadeValue(color.red, factor),
+      shadeValue(color.green, factor),
+      shadeValue(color.blue, factor),
+      1);
+
+  MaterialColor generateMaterialColor(Color color) {
+    return MaterialColor(color.value, {
+      50: tintColor(color, 0.9),
+      100: tintColor(color, 0.8),
+      200: tintColor(color, 0.6),
+      300: tintColor(color, 0.4),
+      400: tintColor(color, 0.2),
+      500: color,
+      600: shadeColor(color, 0.1),
+      700: shadeColor(color, 0.2),
+      800: shadeColor(color, 0.3),
+      900: shadeColor(color, 0.4),
+    });
   }
 
   @override
@@ -63,11 +120,9 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
           update: (ctx, auth, previousProducts) => Products(
             auth.token,
             auth.userId,
-            previousProducts == null
-                ? _content != null
+           _content != null
                     ? _content['products']
-                    : Products.defaultProducts
-                : previousProducts.items,
+                    : Products.defaultProducts,
           ),
         ),
         ChangeNotifierProvider(
@@ -95,7 +150,11 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
                             ? Colors.red
                             : _content['main_color'] == 'Grey'
                                 ? Colors.grey
-                                : Colors.purple)
+                                : _content['main_color'] == 'White'
+                                    ? generateMaterialColor(Colors.white)
+                                    : _content['main_color'] == 'Black'
+                                        ? generateMaterialColor(Colors.black)
+                                        : Colors.purple)
                 : Colors.purple,
             accentColor: Colors.deepOrange,
             textTheme: GoogleFonts.latoTextTheme(
