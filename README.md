@@ -18,7 +18,7 @@ Use Google Sheets to collect orders.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/93039674-5637fa80-f605-11ea-98fd-f1f280e83904.png)](https://www.youtube.com/watch?v=gDNHy0em7Do)
 
-## Step-by-Step Setup Instructions
+## Step-by-Step Store Setup Instructions
 
 ### Step 1
 
