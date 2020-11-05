@@ -4,13 +4,15 @@
 
 [**Get Started**](https://glowbom.com/)
 
-**Glowbom** is the first no-code platform that lets you create software via chat, using just your voice.
-
 ### Create your own store without code.
 
 Use Google Sheets to collect orders.
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/97621854-11b3c300-19e9-11eb-93ba-c9a3fc7f7cdf.png)](https://glowbom.com/)
+
+### About Glowbom
+
+**Glowbom** is the first no-code platform that lets you create software via chat, using just your voice.
 
 ### Here's how it works...
 
