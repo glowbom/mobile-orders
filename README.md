@@ -1,5 +1,7 @@
 ## Glowbom Store
 
+Mobile ordering app built with **Flutter**.
+
 **Glowbom Store** can help you set up a simple e-commerce app connected to a Google Sheet. No programming skills required.
 
 [**Get Started**](https://glowbom.com/)
