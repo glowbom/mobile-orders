@@ -4,7 +4,7 @@
 
 [**Get Started**](https://glowbom.com/)
 
-### Create your own store without code.
+### Create your own store without learning how to code.
 
 Use Google Sheets to collect orders.
 
