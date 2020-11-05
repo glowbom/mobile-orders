@@ -12,7 +12,7 @@ Use Google Sheets to collect orders.
 
 ### About Glowbom
 
-**Glowbom** is the first no-code platform that lets you create software via chat, using just your voice.
+**Glowbom** is the first no-code platform that lets you create flutter apps via chat, using just your voice.
 
 ### Here's how it works...
 
