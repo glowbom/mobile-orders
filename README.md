@@ -2,13 +2,13 @@
 
 **Glowbom Store** can help you set up a simple e-commerce app connected to a Google Sheet. No programming skills required.
 
+[Get Started](https://glowbom.com/)
+
 **Glowbom** is the first no-code platform that lets you create software via chat, using just your voice.
 
 ### Here's how it works...
 
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/93039674-5637fa80-f605-11ea-98fd-f1f280e83904.png)](https://www.youtube.com/watch?v=gDNHy0em7Do)
-
-[Get Started](https://glowbom.com/)
 
 ### Create your own store without code.
 
