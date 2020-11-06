@@ -11,6 +11,7 @@ Use Google Sheets to collect orders.
 Use PayPal to collect payments.
 
 
+
 [![Here's how it works...](https://user-images.githubusercontent.com/2455891/97621854-11b3c300-19e9-11eb-93ba-c9a3fc7f7cdf.png)](https://glowbom.com/)
 
 ### About Glowbom
@@ -216,6 +217,10 @@ The shipping information should appear in the Google Sheet:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621852-11b3c300-19e9-11eb-9015-fe1b3e4da6c2.png)](https://glowbom.com/)
 
+Create the [**PayPal.Me**](https://glowbom.com/chat/) link and paste it into **PayPal.me link** to collect payments using PayPal:
+
+[![Picture](https://user-images.githubusercontent.com/2455891/98414923-77332f80-2039-11eb-9674-311c309d6b51.png)](https://glowbom.com/)
+
 ### Step 15
 
 Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
@@ -265,7 +270,6 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 ### Upcoming Features
 
 - Stripe payments,
-- Paypal payments,
 - Square payments,
 - Airtable support,
 - Firebase support,
