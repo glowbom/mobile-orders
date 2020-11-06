@@ -205,6 +205,12 @@ The shipping information should appear in the Google Sheet:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621852-11b3c300-19e9-11eb-9015-fe1b3e4da6c2.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
 
+### Collecting Payments with PayPal
+
+Create the [**PayPal.Me**](https://www.paypal.com/paypalme/){:target="_blank" rel="noopener"} link and paste it into **PayPal.me link** to collect payments using PayPal:
+
+[![Picture](https://user-images.githubusercontent.com/2455891/98414923-77332f80-2039-11eb-9674-311c309d6b51.png)](https://glowbom.com/){:target="_blank" rel="noopener"}
+
 ### Step 15
 
 Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
