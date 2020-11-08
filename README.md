@@ -98,7 +98,7 @@ Or say: **"Stop the project please."**
 
 ### Step 9
 
-To customize your survey, open the project settings by clicking the small gear button on the bottom left:
+To customize your store, open the project settings by clicking the small gear button on the bottom left:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621826-0e203c00-19e9-11eb-8029-5f48b780da0a.png)](https://glowbom.com/)
 
