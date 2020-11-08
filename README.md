@@ -255,7 +255,7 @@ Replace the **source-flutter/app/assets/store.glowbom** file with your **store.g
 
 #### Automatic Deployment
 
-To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/). With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store**, and the web. You might need to put the **source-flutter** folder to [**GitHub**](https://github.com/) before starting the building process.
+To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/). With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store**, and the web. You might need to put the **source-flutter** folder to **GitHub** before starting the building process.
 
 #### Manual Deployment
 
