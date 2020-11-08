@@ -223,7 +223,7 @@ Create the [**PayPal.Me**](https://www.paypal.com/paypalme/) link and paste it i
 
 [![Picture](https://user-images.githubusercontent.com/2455891/98414923-77332f80-2039-11eb-9674-311c309d6b51.png)](https://glowbom.com/)
 
-### Step 15. Exporting the Project
+### Step 15
 
 Press the **"Export"** button on the bottom right to export the **store.glowbom** project file and the source code:
 
@@ -231,7 +231,7 @@ Press the **"Export"** button on the bottom right to export the **store.glowbom*
 
 Or say: **"Export code please."**
 
-### Step 16. Preparing the Project
+### Step 16
 
 You download the data file **store.glowbom** and an archive that has two folders **build-web** and **source-flutter**:
 
