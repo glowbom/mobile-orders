@@ -251,7 +251,7 @@ Replace the **source-flutter/app/assets/store.glowbom** file with your **store.g
 
 ### Step 17
 
-To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/). With **Codemagic**, you can easily build your project and publish it to Google Play, App Store or the web.
+To build and deploy the app automatically, we reccommend using [**Codemagic**](https://codemagic.io/). With **Codemagic**, you can easily build your project and publish it to **Google Play**, **App Store** or the web.
 
 The **build-web** folder contains a ready-to-deploy web app that can be deployed to any hosting. To publish the web app manually, We recommend using [**Netlify**](https://www.netlify.com/products/edge/). It allows you to drag & drop the web app folder directly to the dashboard. The web app deploys automatically, and you will get the app link shortly after that. Optionally, you will be able to connect the web app with the custom domain or subdomain.
 
