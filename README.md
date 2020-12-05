@@ -251,3 +251,13 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 - Multiple exporting options.
 
 Please file feature requests and bugs at the [issue tracker](https://github.com/Glowbom/mobile-orders/issues).
+
+## References
+
+- [Website](https://glowbom.com/)
+- [Discord](https://discord.gg/yTYgYYbZ)
+- [Tik Tok](https://www.tiktok.com/@glowbomapps)
+- [Twitter](https://twitter.com/GlowbomCorp)
+- [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
+- [Instagram](https://www.instagram.com/glowbom/)
+- [Facebook](https://www.facebook.com/glowbom)
