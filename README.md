@@ -246,6 +246,7 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 - Categories support,
 - Search,
 - Saving past orders,
+- Product reviews,
 - Notifications,
 - Analytics,
 - Multiple exporting options.
