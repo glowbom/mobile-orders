@@ -262,7 +262,7 @@ Please file feature requests and bugs at the [issue tracker](https://github.com
 - [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
 - [Facebook](https://www.facebook.com/glowbom)
 - [Instagram](https://www.instagram.com/glowbom/)
-- [Tik Tok](https://www.tiktok.com/@glowbomapps)
+- [TikTok](https://www.tiktok.com/@glowbomapps)
 
 ## Upcoming updates
 
