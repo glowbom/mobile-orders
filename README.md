@@ -257,7 +257,6 @@ Please file feature requests and bugs at the [issue tracker](https://github.com
 ## References
 
 - [Website](https://glowbom.com/)
-- [Discord](https://discord.gg/yTYgYYbZ)
 - [Twitter](https://twitter.com/GlowbomCorp)
 - [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
 - [Facebook](https://www.facebook.com/glowbom)
