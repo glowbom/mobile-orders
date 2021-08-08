@@ -240,6 +240,7 @@ Everyone is welcome to contribute to **Glowbom Store**. There are several ways o
 - Stripe payments,
 - Square payments,
 - Airtable support,
+- Shutterstock support,
 - Firebase support,
 - Different layouts support,
 - Localization,
