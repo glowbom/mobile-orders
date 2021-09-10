@@ -183,29 +183,29 @@ Name the project and press **Ok**:
 
 ### Step 13
 
-Publish the script by pressing **Publish->Deploy as web app...**:
+Publish the script by pressing **Deploy->New deployment**:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621842-10829600-19e9-11eb-8976-0942660be90a.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132927854-d33697ef-05d2-4134-a46f-8a7d5e493683.png)](https://glowbom.com/)
 
-Choose **Anyone, even anonymous** in **Who has access to the app** and press **Deploy**:
+Choose **Web app** as a deployment type:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621843-10829600-19e9-11eb-875b-3f5fca1c72e9.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132928025-70efd3cf-0257-44cb-a09e-50c04e6380b7.png)](https://glowbom.com/)
 
-Press **Review Permissions**:
+Choose **Anyone** from **Who has access**:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621846-111b2c80-19e9-11eb-9354-ec61c1b0b96d.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132928364-5ad93242-b885-463f-abf6-313b903f6e12.png)](https://glowbom.com/)
 
-Press **Allow**:
+Press **Authorize access** and grant permissions:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621847-111b2c80-19e9-11eb-8d36-f4e4c00770ce.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132928443-febf547e-2207-49bc-8478-13b7407a1d4c.png)](https://glowbom.com/)
 
-Copy **Current web app URL**:
+Copy **Web app URL**:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621849-111b2c80-19e9-11eb-9803-7564770fb084.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132928561-632191ec-5502-445f-a2d5-f727a63d4f13.png)](https://glowbom.com/)
 
 ### Step 14
 
-Paste the **Current web app URL** into **Orders form link**:
+Paste the **Web app URL** into **Orders form link**:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/97621850-11b3c300-19e9-11eb-8dfb-0ec8af7f9a53.png)](https://glowbom.com/)
 
