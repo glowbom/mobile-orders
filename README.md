@@ -175,7 +175,7 @@ function doGet(e) {
 
 Paste the script code inside the editor and press **Save**:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621839-0fe9ff80-19e9-11eb-8cf8-7de283c0e153.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132927719-3c05736c-8363-48ca-a22e-0ce479c641c0.png)](https://glowbom.com/)
 
 Name the project and press **Ok**:
 
