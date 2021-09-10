@@ -122,7 +122,7 @@ Open the editor by going to **Tools->Script editor**:
 
 Clear everything inside the script window:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621838-0fe9ff80-19e9-11eb-8a7d-32d045a1e047.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132927570-064f2413-56dd-4f1c-afb8-0578bbd9824d.png)](https://glowbom.com/)
 
 Copy a server script:
 
