@@ -179,7 +179,7 @@ Paste the script code inside the editor and press **Save**:
 
 Name the project and press **Ok**:
 
-[![Picture](https://user-images.githubusercontent.com/2455891/97621840-10829600-19e9-11eb-979e-c37e32a5806c.png)](https://glowbom.com/)
+[![Picture](https://user-images.githubusercontent.com/2455891/132927792-de66c6af-5756-450d-a394-9866d067171f.png)](https://glowbom.com/)
 
 ### Step 13
 
