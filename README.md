@@ -177,7 +177,7 @@ Paste the script code inside the editor and press **Save**:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/132927719-3c05736c-8363-48ca-a22e-0ce479c641c0.png)](https://glowbom.com/)
 
-Name the project and press **Ok**:
+Name the project and press **Rename**:
 
 [![Picture](https://user-images.githubusercontent.com/2455891/132927792-de66c6af-5756-450d-a394-9866d067171f.png)](https://glowbom.com/)
 
