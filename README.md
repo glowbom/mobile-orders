@@ -262,9 +262,3 @@ Please file feature requests and bugs at the [issue tracker](https://github.com
 - [YouTube](https://www.youtube.com/channel/UCrYQEQPhAHmn7N8W58nNwOw)
 - [Instagram](https://www.instagram.com/glowbom/)
 - [TikTok](https://www.tiktok.com/@glowbomapps)
-
-## Upcoming updates
-
-We are working on Glowbom 2.0. Firebase, Stripe, OpenAI, GitHub integrations, Unity game projects support, and more are coming soon.
-
-- [Subscribe to get early access](https://www.producthunt.com/upcoming/glowbom-2-0)
