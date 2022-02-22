@@ -212,7 +212,7 @@ class _CheckoutState extends State<CheckoutScreen> {
                         ),
                       SizedBox(height: 12),
                       if (!_submitted)
-                        FlatButton(
+                        TextButton(
                           child: Text(
                             'Place your order',
                             style: TextStyle(

@@ -53,7 +53,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
       loadContentFromAssets().then(
         (value) => setState(() {
           _content = value;
-          List<Product> products = List<Product>();
+          List<Product> products = List<Product>.empty(growable: true);
 
           List<dynamic> loadedProducts = value['products'];
 
@@ -156,7 +156,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
                                         ? generateMaterialColor(Colors.black)
                                         : Colors.purple)
                 : Colors.purple,
-            accentColor: Colors.deepOrange,
+            //accentColor: Colors.deepOrange,
             textTheme: GoogleFonts.latoTextTheme(
               Theme.of(context).textTheme,
             ),
