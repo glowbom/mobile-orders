@@ -45,7 +45,7 @@ class Auth with ChangeNotifier {
         'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=$_key';
     try {
       final response = await http.post(
-        url,
+        Uri.parse(url),
         body: json.encode({
           'email': email,
           'password': password,
@@ -88,7 +88,8 @@ class Auth with ChangeNotifier {
       return false;
     }
 
-    final extractedUserData = json.decode(prefs.getString('userData')) as Map<String, Object>;
+    final extractedUserData =
+        json.decode(prefs.getString('userData')) as Map<String, Object>;
     final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
 
     if (expiryDate.isBefore(DateTime.now())) {

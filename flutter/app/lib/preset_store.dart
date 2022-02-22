@@ -44,6 +44,8 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
     return json.decode(data);
   }
 
+  var _expired = false;
+
   @override
   void initState() {
     super.initState();
@@ -60,7 +62,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
               description: loadedProducts[index]['description'],
               id: loadedProducts[index]['id'],
               title: loadedProducts[index]['title'],
-              price: loadedProducts[index]['price'],
+              price: double.tryParse(loadedProducts[index]['price'].toString()),
               imageUrl: loadedProducts[index]['imageUrl'],
               isFavorite: loadedProducts[index]['isFavorite'],
             );
@@ -120,9 +122,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
           update: (ctx, auth, previousProducts) => Products(
             auth.token,
             auth.userId,
-           _content != null
-                    ? _content['products']
-                    : Products.defaultProducts,
+            _content != null ? _content['products'] : Products.defaultProducts,
           ),
         ),
         ChangeNotifierProvider(
@@ -161,18 +161,27 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
               Theme.of(context).textTheme,
             ),
           ),
-          home: widget.onlyEditor
-              ? UserProductsScreen(widget.onlyEditor)
-              : auth.isAuth
-                  ? ProductsOverviewScreen()
-                  : FutureBuilder(
-                      future: auth.tryAutoLogin(),
-                      builder: (ctx, authResultSnapshot) =>
-                          authResultSnapshot.connectionState ==
-                                  ConnectionState.waiting
-                              ? SplashScreen()
-                              : AuthScreen(),
+          home: _expired
+              ? Scaffold(
+                  body: Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text('The preview is no longer available.'),
                     ),
+                  ),
+                )
+              : widget.onlyEditor
+                  ? UserProductsScreen(widget.onlyEditor)
+                  : auth.isAuth
+                      ? ProductsOverviewScreen()
+                      : FutureBuilder(
+                          future: auth.tryAutoLogin(),
+                          builder: (ctx, authResultSnapshot) =>
+                              authResultSnapshot.connectionState ==
+                                      ConnectionState.waiting
+                                  ? SplashScreen()
+                                  : AuthScreen(),
+                        ),
           routes: {
             ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
             CartScreen.routeName: (ctx) => CartScreen(),
@@ -182,15 +191,21 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
             EditProductScreen.routeName: (ctx) => EditProductScreen(),
             AuthScreen.routeName: (ctx) => AuthScreen(),
             CheckoutScreen.routeName: (ctx) => CheckoutScreen(
-                () {},
-                _content != null ? _content['show_number_result'] : false,
-                _content != null ? _content['show_percentage_result'] : false,
-                _content != null ? _content['voice'] : false,
-                _content != null
-                    ? _content['conclusion']
-                    : 'Thank you! Please enter your shipping information:',
-                _content != null ? _content['start_over'] : '',
-                ''),
+                  () {},
+                  _content != null ? _content['show_number_result'] : false,
+                  _content != null ? _content['show_percentage_result'] : false,
+                  _content != null ? _content['voice'] : false,
+                  _content != null
+                      ? _content['conclusion']
+                      : 'Thank you! Please enter your shipping information:',
+                  _content != null ? _content['start_over'] : '',
+                  '',
+                  _content != null &&
+                          (_content as Map<String, dynamic>)
+                              .containsKey('payment_link')
+                      ? _content['payment_link']
+                      : '',
+                ),
           },
         ),
       ),

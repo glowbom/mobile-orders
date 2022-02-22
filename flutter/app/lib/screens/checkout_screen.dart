@@ -1,3 +1,5 @@
+import 'package:url_launcher/url_launcher.dart';
+
 import '../providers/cart.dart';
 import '../providers/orders.dart';
 import '../widgets/app_drawer.dart';
@@ -14,10 +16,11 @@ class CheckoutScreen extends StatefulWidget {
   final String message;
   final String url;
   final String order;
+  final String paymentLink;
   final Function checkoutFunction;
 
   CheckoutScreen(this.checkoutFunction, this.showPhone, this.showName,
-      this.showAddress, this.message, this.url, this.order);
+      this.showAddress, this.message, this.url, this.order, this.paymentLink);
 
   @override
   _CheckoutState createState() => _CheckoutState();
@@ -31,6 +34,14 @@ class _CheckoutState extends State<CheckoutScreen> {
   var _phone = '';
   var _submitted = false;
 
+  _launchLink(link) async {
+    if (await canLaunch(link)) {
+      await launch(link);
+    } else {
+      throw 'Could not launch $link';
+    }
+  }
+
   void _trySubmit() async {
     final isValid = _formKey.currentState.validate();
     FocusScope.of(context).unfocus();
@@ -40,31 +51,40 @@ class _CheckoutState extends State<CheckoutScreen> {
 
       Orders ordersData = Provider.of<Orders>(context, listen: false);
       String orderString = '';
+      double price = 0.0;
       if (ordersData != null &&
           ordersData.orders != null &&
           ordersData.orders.length > 0) {
-            OrderItem orderItem = ordersData.orders[ordersData.orders.length - 1];
-            orderString += orderItem.dateTime.toIso8601String() + ', ';
-            orderString += orderItem.amount.toString() + ', ';
-            for (int i = 0; i < orderItem.products.length; i++) {
-              CartItem product = orderItem.products[i];
-              orderString += product.title + ', ';
-              orderString += product.quantity.toString() + ', ';
-              orderString += product.price.toString() + ', ';
-            }
-          }
+        OrderItem orderItem = ordersData.orders[ordersData.orders.length - 1];
+        orderString += orderItem.dateTime.toIso8601String() + ', ';
+        orderString += orderItem.amount.toString() + ', ';
+        for (int i = 0; i < orderItem.products.length; i++) {
+          CartItem product = orderItem.products[i];
+          orderString += product.title + ', ';
+          orderString += product.quantity.toString() + ', ';
+          orderString += product.price.toString() + ', ';
+
+          price += product.price * product.quantity;
+        }
+      }
 
       final url = widget.url;
 
       if (url != null && url.contains('http')) {
         http
-            .get(
-                '$url?data=$_userEmail;$_userName;$_address;$_phone;$orderString')
+            .get(Uri.parse(
+                '$url?data=$_userEmail;$_userName;$_address;$_phone;$orderString'))
             .then((value) => print(value.body));
       }
 
       setState(() {
         _submitted = true;
+
+        if (widget.paymentLink != null && widget.paymentLink != '') {
+          _launchLink(widget.paymentLink.startsWith('http')
+              ? '${widget.paymentLink}/$price'
+              : 'https://${widget.paymentLink}/$price');
+        }
       });
 
       widget.checkoutFunction();

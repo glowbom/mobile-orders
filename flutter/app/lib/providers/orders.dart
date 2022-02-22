@@ -38,7 +38,7 @@ class Orders with ChangeNotifier {
 
     final url = Auth.URL + '/orders/$userId.json?auth=$authToken';
     try {
-      final response = await http.get(url);
+      final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
@@ -78,7 +78,7 @@ class Orders with ChangeNotifier {
     try {
       if (authToken != null) {
         final response = await http.post(
-          url,
+          Uri.parse(url),
           body: json.encode({
             'amount': total,
             'dateTime': timestamp.toIso8601String(),
@@ -116,7 +116,7 @@ class Orders with ChangeNotifier {
       notifyListeners();
       if (authToken != null) {
         await http.post(
-          activeOrdersUrl,
+          Uri.parse(activeOrdersUrl),
           body: json.encode({
             'amount': total,
             'dateTime': timestamp.toIso8601String(),

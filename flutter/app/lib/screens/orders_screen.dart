@@ -26,11 +26,16 @@ class OrdersScreen extends StatelessWidget {
               );
             } else {
               return Consumer<Orders>(
-                builder: (ctx, orderData, child) => ListView.builder(
-                  itemBuilder: (ctx, i) => OrderItem(
-                    orderData.orders[i],
+                builder: (ctx, orderData, child) => Center(
+                  child: Container(
+                    constraints: BoxConstraints(minWidth: 100, maxWidth: 640),
+                    child: ListView.builder(
+                      itemBuilder: (ctx, i) => OrderItem(
+                        orderData.orders[i],
+                      ),
+                      itemCount: orderData.orders.length,
+                    ),
                   ),
-                  itemCount: orderData.orders.length,
                 ),
               );
             }

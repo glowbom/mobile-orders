@@ -20,6 +20,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              constraints: BoxConstraints(minWidth: 100, maxWidth: 640),
               width: double.infinity,
               height: 300,
               child: Image.network(
@@ -43,10 +44,15 @@ class ProductDetailScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
-              child: Text(
-                loadedProduct.description,
-                textAlign: TextAlign.center,
-                softWrap: true,
+              child: Center(
+                child: Container(
+                  constraints: BoxConstraints(minWidth: 100, maxWidth: 640),
+                  child: Text(
+                    loadedProduct.description,
+                    textAlign: TextAlign.center,
+                    softWrap: true,
+                  ),
+                ),
               ),
             ),
           ],

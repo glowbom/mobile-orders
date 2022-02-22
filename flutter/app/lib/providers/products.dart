@@ -9,7 +9,7 @@ import 'auth.dart';
 
 class Products with ChangeNotifier {
   static List<Product> defaultProducts = [
-    Product(
+    /*Product(
       id: 'p1',
       title: 'Chair',
       description: 'The chair combines comfort with bold contemporary forms.',
@@ -40,7 +40,7 @@ class Products with ChangeNotifier {
       price: 49.99,
       imageUrl:
           'https://glowbom.netlify.app/v1.1.3/img/presets/store/bed-small.jpg',
-    ),
+    ),*/
   ];
   List<Product> _items = defaultProducts;
 
@@ -82,14 +82,14 @@ class Products with ChangeNotifier {
 
     var url = Auth.URL + '/products.json?auth=$authToken$filterString';
     try {
-      final response = await http.get(url);
+      final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
       }
 
       url = Auth.URL + '/userFavorites/$userId.json?auth=$authToken';
-      final favoriteResponse = await http.get(url);
+      final favoriteResponse = await http.get(Uri.parse(url));
       final favoriteData =
           json.decode(favoriteResponse.body) as Map<String, dynamic>;
 
@@ -120,7 +120,7 @@ class Products with ChangeNotifier {
       final url = Auth.URL + '/products.json?auth=$authToken';
       try {
         final response = await http.post(
-          url,
+          Uri.parse(url),
           body: json.encode({
             'title': value.title,
             'description': value.description,
@@ -160,7 +160,7 @@ class Products with ChangeNotifier {
       if (authToken != null) {
         final url = Auth.URL + '/products/$id.json?auth=$authToken';
         await http.patch(
-          url,
+          Uri.parse(url),
           body: json.encode({
             'title': value.title,
             'description': value.description,
@@ -183,7 +183,7 @@ class Products with ChangeNotifier {
     notifyListeners();
     if (authToken != null) {
       try {
-        final response = await http.delete(url);
+        final response = await http.delete(Uri.parse(url));
         if (response.statusCode >= 400) {
           throw HttpException('Could not delete product.');
         }
