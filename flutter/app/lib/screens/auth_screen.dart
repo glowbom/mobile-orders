@@ -89,7 +89,7 @@ class AuthScreen extends StatelessWidget {
 
 class AuthCard extends StatefulWidget {
   const AuthCard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -100,15 +100,15 @@ class _AuthCardState extends State<AuthCard>
     with SingleTickerProviderStateMixin {
   final GlobalKey<FormState> _formKey = GlobalKey();
   AuthMode _authMode = AuthMode.Login;
-  Map<String, String> _authData = {
+  Map<String, String?> _authData = {
     'email': '',
     'password': '',
   };
   var _isLoading = false;
   final _passwordController = TextEditingController();
-  AnimationController _controller;
-  Animation<Offset> _slideAnimation;
-  Animation<double> _opacityAnimation;
+  late AnimationController _controller;
+  late Animation<Offset> _slideAnimation;
+  late Animation<double> _opacityAnimation;
 
   @override
   void initState() {
@@ -169,11 +169,11 @@ class _AuthCardState extends State<AuthCard>
   }
 
   Future<void> _submit() async {
-    if (!_formKey.currentState.validate()) {
+    if (!_formKey.currentState!.validate()) {
       // Invalid!
       return;
     }
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     setState(() {
       _isLoading = true;
     });
@@ -193,15 +193,15 @@ class _AuthCardState extends State<AuthCard>
       }
     } on HttpException catch (error) {
       var errorMessage = 'Authentication failed.';
-      if (error.message.contains('EMAIL_EXISTS')) {
+      if (error.message!.contains('EMAIL_EXISTS')) {
         errorMessage = 'This email address is already in use.';
-      } else if (error.message.contains('INVALID_EMAIL')) {
+      } else if (error.message!.contains('INVALID_EMAIL')) {
         errorMessage = 'This is not a valid email address.';
-      } else if (error.message.contains('WEAK_PASSWORD')) {
+      } else if (error.message!.contains('WEAK_PASSWORD')) {
         errorMessage = 'This password is too weak.';
-      } else if (error.message.contains('EMAIL_NOT_FOUND')) {
+      } else if (error.message!.contains('EMAIL_NOT_FOUND')) {
         errorMessage = 'Could not find a user with that email.';
-      } else if (error.message.contains('INVALID_PASSWORD')) {
+      } else if (error.message!.contains('INVALID_PASSWORD')) {
         errorMessage = 'Invalid password.';
       }
       _showErrorDialog(errorMessage);
@@ -259,7 +259,7 @@ class _AuthCardState extends State<AuthCard>
                   decoration: InputDecoration(labelText: 'E-Mail'),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
-                    if (value.isEmpty || !value.contains('@')) {
+                    if (value!.isEmpty || !value.contains('@')) {
                       return 'Invalid email!';
                     }
 
@@ -274,7 +274,7 @@ class _AuthCardState extends State<AuthCard>
                   obscureText: true,
                   controller: _passwordController,
                   validator: (value) {
-                    if (value.isEmpty || value.length < 5) {
+                    if (value!.isEmpty || value.length < 5) {
                       return 'Password is too short!';
                     }
 
@@ -329,16 +329,12 @@ class _AuthCardState extends State<AuthCard>
                     ),
                     onPressed: _submit,
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      primary:
-                          Theme.of(context).primaryColor, // Background color
-
-                      onPrimary: Theme.of(context)
+                      foregroundColor: Theme.of(context)
                           .primaryTextTheme
-                          .button
-                          .color, // Text Color (Foreground color)
+                          .labelLarge!
+                          .color, backgroundColor: Theme.of(context).primaryColor, shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ), // Text Color (Foreground color)
                     ),
                   ),
                 TextButton(
@@ -350,9 +346,8 @@ class _AuthCardState extends State<AuthCard>
                   ),
                   onPressed: _switchAuthMode,
                   style: TextButton.styleFrom(
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    primary: Theme.of(context)
-                        .primaryColor, // Text Color (Foreground color)
+                    foregroundColor: Theme.of(context)
+                        .primaryColor, tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Text Color (Foreground color)
                   ),
                 ),
               ],

@@ -69,8 +69,8 @@ class CartScreen extends StatelessWidget {
 
 class OrderButton extends StatefulWidget {
   const OrderButton({
-    Key key,
-    @required this.cart,
+    Key? key,
+    required this.cart,
   }) : super(key: key);
 
   final Cart cart;
@@ -106,8 +106,7 @@ class _OrderButtonState extends State<OrderButton> {
             },
       child: _isLoading ? CircularProgressIndicator() : Text('ORDER NOW'),
       style: TextButton.styleFrom(
-        primary:
-            Theme.of(context).primaryColor, // Text Color (Foreground color)
+        foregroundColor: Theme.of(context).primaryColor, // Text Color (Foreground color)
       ),
     );
   }

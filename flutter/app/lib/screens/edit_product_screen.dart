@@ -16,7 +16,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _imageUrlController = TextEditingController();
   final _imageUrlFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
-  var _editedProduct = Product(
+  Product? _editedProduct = Product(
     id: null,
     title: '',
     description: '',
@@ -42,18 +42,18 @@ class _EditProductScreenState extends State<EditProductScreen> {
   @override
   void didChangeDependencies() {
     if (_isInit) {
-      final productId = ModalRoute.of(context).settings.arguments as String;
+      final productId = ModalRoute.of(context)!.settings.arguments as String?;
       if (productId != null) {
         _editedProduct =
             Provider.of<Products>(context, listen: false).findById(productId);
         _initValues = {
-          'title': _editedProduct.title,
-          'description': _editedProduct.description,
-          'price': _editedProduct.price.toString(),
+          'title': _editedProduct!.title!,
+          'description': _editedProduct!.description!,
+          'price': _editedProduct!.price.toString(),
           'imageUrl': '',
         };
 
-        _imageUrlController.text = _editedProduct.imageUrl;
+        _imageUrlController.text = _editedProduct!.imageUrl!;
       }
 
       _isInit = false;
@@ -84,19 +84,19 @@ class _EditProductScreenState extends State<EditProductScreen> {
   }
 
   Future<void> _saveForm() async {
-    final isValid = _form.currentState.validate();
+    final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
     }
-    _form.currentState.save();
+    _form.currentState!.save();
 
     setState(() {
       _isLoading = true;
     });
 
-    if (_editedProduct.id != null) {
+    if (_editedProduct!.id != null) {
       await Provider.of<Products>(context, listen: false).updateProduct(
-        _editedProduct.id,
+        _editedProduct!.id,
         _editedProduct,
       );
       setState(() {
@@ -162,7 +162,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         FocusScope.of(context).requestFocus(_priceFocusNode);
                       },
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Plaese provide a value.';
                         }
 
@@ -170,12 +170,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
-                          id: _editedProduct.id,
-                          isFavorite: _editedProduct.isFavorite,
+                          id: _editedProduct!.id,
+                          isFavorite: _editedProduct!.isFavorite,
                           title: value,
-                          description: _editedProduct.description,
-                          price: _editedProduct.price,
-                          imageUrl: _editedProduct.imageUrl,
+                          description: _editedProduct!.description,
+                          price: _editedProduct!.price,
+                          imageUrl: _editedProduct!.imageUrl,
                         );
                       },
                     ),
@@ -190,7 +190,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                             .requestFocus(_descriptionFocusNode);
                       },
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Plaese provide a price.';
                         }
 
@@ -198,7 +198,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           return 'Please enter a valid number.';
                         }
 
-                        if (double.tryParse(value) <= 0) {
+                        if (double.tryParse(value)! <= 0) {
                           return 'Please enter a number greater than zero.';
                         }
 
@@ -206,12 +206,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
-                          id: _editedProduct.id,
-                          isFavorite: _editedProduct.isFavorite,
-                          title: _editedProduct.title,
-                          description: _editedProduct.description,
-                          price: double.parse(value),
-                          imageUrl: _editedProduct.imageUrl,
+                          id: _editedProduct!.id,
+                          isFavorite: _editedProduct!.isFavorite,
+                          title: _editedProduct!.title,
+                          description: _editedProduct!.description,
+                          price: double.parse(value!),
+                          imageUrl: _editedProduct!.imageUrl,
                         );
                       },
                     ),
@@ -222,7 +222,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       keyboardType: TextInputType.multiline,
                       focusNode: _descriptionFocusNode,
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return 'Plaese provide a description.';
                         }
 
@@ -234,12 +234,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
-                          id: _editedProduct.id,
-                          isFavorite: _editedProduct.isFavorite,
-                          title: _editedProduct.title,
+                          id: _editedProduct!.id,
+                          isFavorite: _editedProduct!.isFavorite,
+                          title: _editedProduct!.title,
                           description: value,
-                          price: _editedProduct.price,
-                          imageUrl: _editedProduct.imageUrl,
+                          price: _editedProduct!.price,
+                          imageUrl: _editedProduct!.imageUrl,
                         );
                       },
                     ),
@@ -279,7 +279,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                               _saveForm();
                             },
                             validator: (value) {
-                              if (value.isEmpty) {
+                              if (value!.isEmpty) {
                                 return 'Plaese provide an Image URL.';
                               }
 
@@ -292,11 +292,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                             },
                             onSaved: (value) {
                               _editedProduct = Product(
-                                id: _editedProduct.id,
-                                isFavorite: _editedProduct.isFavorite,
-                                title: _editedProduct.title,
-                                description: _editedProduct.description,
-                                price: _editedProduct.price,
+                                id: _editedProduct!.id,
+                                isFavorite: _editedProduct!.isFavorite,
+                                title: _editedProduct!.title,
+                                description: _editedProduct!.description,
+                                price: _editedProduct!.price,
                                 imageUrl: value,
                               );
                             },

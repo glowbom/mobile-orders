@@ -10,20 +10,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Auth with ChangeNotifier {
   static const _key = 'FIREBASE_WEB_API_KEY';
   static const URL = 'FIREBASE_IO_URL';
-  String _token;
-  DateTime _expiryDate;
-  String _userId;
-  Timer _authTimer;
+  String? _token;
+  DateTime? _expiryDate;
+  String? _userId;
+  Timer? _authTimer;
 
   bool _authRequired = false;
 
-  String get userId {
+  String? get userId {
     return _userId;
   }
 
-  String get token {
+  String? get token {
     if (_expiryDate != null &&
-        _expiryDate.isAfter(DateTime.now()) &&
+        _expiryDate!.isAfter(DateTime.now()) &&
         _token != null) {
       return _token;
     }
@@ -40,7 +40,7 @@ class Auth with ChangeNotifier {
   }
 
   Future<void> _authenticate(
-      String email, String password, String urlSegment) async {
+      String? email, String? password, String urlSegment) async {
     final url =
         'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=$_key';
     try {
@@ -73,7 +73,7 @@ class Auth with ChangeNotifier {
         {
           'token': _token,
           'userId': _userId,
-          'expiryDate': _expiryDate.toIso8601String(),
+          'expiryDate': _expiryDate!.toIso8601String(),
         },
       );
       prefs.setString('userData', userData);
@@ -89,26 +89,26 @@ class Auth with ChangeNotifier {
     }
 
     final extractedUserData =
-        json.decode(prefs.getString('userData')) as Map<String, Object>;
-    final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
+        json.decode(prefs.getString('userData')!) as Map<String, Object>;
+    final expiryDate = DateTime.parse(extractedUserData['expiryDate'] as String);
 
     if (expiryDate.isBefore(DateTime.now())) {
       return false;
     }
 
-    _token = extractedUserData['token'];
+    _token = extractedUserData['token'] as String?;
     _expiryDate = expiryDate;
-    _userId = extractedUserData['userId'];
+    _userId = extractedUserData['userId'] as String?;
     notifyListeners();
     _autoLogout();
     return true;
   }
 
-  Future<void> signup(String email, String password) async {
+  Future<void> signup(String? email, String? password) async {
     return _authenticate(email, password, 'signUp');
   }
 
-  Future<void> signin(String email, String password) async {
+  Future<void> signin(String? email, String? password) async {
     return _authenticate(email, password, 'signInWithPassword');
   }
 
@@ -117,7 +117,7 @@ class Auth with ChangeNotifier {
     _userId = null;
     _expiryDate = null;
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
     }
     notifyListeners();
 
@@ -127,10 +127,10 @@ class Auth with ChangeNotifier {
 
   void _autoLogout() {
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
     }
 
-    final timerToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
+    final timerToExpiry = _expiryDate!.difference(DateTime.now()).inSeconds;
     _authTimer = Timer(Duration(seconds: timerToExpiry), logout);
   }
 }

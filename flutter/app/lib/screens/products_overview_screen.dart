@@ -26,7 +26,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       setState(() {
         _isLoading = true;
       });
-      Provider.of<Products>(context, listen: false).fetchAndSetProducts().then((value) {
+      Provider.of<Products>(context, listen: false)
+          .fetchAndSetProducts()
+          .then((value) {
         setState(() {
           _isLoading = false;
         });
@@ -67,7 +69,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             ],
           ),
           Consumer<Cart>(
-            builder: (_, cart, child) => Badge(
+            builder: (_, cart, child) => CustomBadge(
               child: child,
               value: cart.itemsCount.toString(),
             ),

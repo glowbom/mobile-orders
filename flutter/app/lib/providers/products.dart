@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'auth.dart';
 
 class Products with ChangeNotifier {
-  static List<Product> defaultProducts = [
+  static List<Product?> defaultProducts = [
     /*Product(
       id: 'p1',
       title: 'Chair',
@@ -42,26 +42,26 @@ class Products with ChangeNotifier {
           'https://glowbom.netlify.app/v1.1.3/img/presets/store/bed-small.jpg',
     ),*/
   ];
-  List<Product> _items = defaultProducts;
+  List<Product?>? _items = defaultProducts;
 
-  static List<Product> get copyDefaultProducts {
+  static List<Product?> get copyDefaultProducts {
     return [...defaultProducts];
   }
 
-  List<Product> get items {
-    return [..._items];
+  List<Product?> get items {
+    return [..._items!];
   }
 
-  List<Product> get favoriteItems {
-    return _items.where((element) => element.isFavorite).toList();
+  List<Product?> get favoriteItems {
+    return _items!.where((element) => element!.isFavorite!).toList();
   }
 
-  Product findById(String id) {
-    return _items.firstWhere((prod) => prod.id == id);
+  Product? findById(String? id) {
+    return _items!.firstWhere((prod) => prod!.id == id);
   }
 
-  final String authToken;
-  final String userId;
+  final String? authToken;
+  final String? userId;
 
   Products(this.authToken, this.userId, this._items);
 
@@ -83,7 +83,7 @@ class Products with ChangeNotifier {
     var url = Auth.URL + '/products.json?auth=$authToken$filterString';
     try {
       final response = await http.get(Uri.parse(url));
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      final extractedData = json.decode(response.body) as Map<String, dynamic>?;
       if (extractedData == null) {
         return;
       }
@@ -91,9 +91,9 @@ class Products with ChangeNotifier {
       url = Auth.URL + '/userFavorites/$userId.json?auth=$authToken';
       final favoriteResponse = await http.get(Uri.parse(url));
       final favoriteData =
-          json.decode(favoriteResponse.body) as Map<String, dynamic>;
+          json.decode(favoriteResponse.body) as Map<String, dynamic>?;
 
-      final List<Product> loadedProducts = [];
+      final List<Product?> loadedProducts = [];
       extractedData.forEach((prodId, prodData) {
         loadedProducts.add(
           Product(
@@ -115,14 +115,14 @@ class Products with ChangeNotifier {
     }
   }
 
-  Future<void> addProduct(Product value) async {
+  Future<void> addProduct(Product? value) async {
     if (authToken != null) {
       final url = Auth.URL + '/products.json?auth=$authToken';
       try {
         final response = await http.post(
           Uri.parse(url),
           body: json.encode({
-            'title': value.title,
+            'title': value!.title,
             'description': value.description,
             'price': value.price,
             'imageUrl': value.imageUrl,
@@ -136,7 +136,7 @@ class Products with ChangeNotifier {
           price: value.price,
           imageUrl: value.imageUrl,
         );
-        _items.add(newProduct);
+        _items!.add(newProduct);
         notifyListeners();
       } catch (error) {
         throw error;
@@ -144,42 +144,42 @@ class Products with ChangeNotifier {
     } else {
       final newProduct = Product(
         id: DateTime.now().toIso8601String(),
-        title: value.title,
+        title: value!.title,
         description: value.description,
         price: value.price,
         imageUrl: value.imageUrl,
       );
-      _items.add(newProduct);
+      _items!.add(newProduct);
       notifyListeners();
     }
   }
 
-  Future<void> updateProduct(String id, Product value) async {
-    final prodIndex = _items.indexWhere((element) => element.id == id);
+  Future<void> updateProduct(String? id, Product? value) async {
+    final prodIndex = _items!.indexWhere((element) => element!.id == id);
     if (prodIndex >= 0) {
       if (authToken != null) {
         final url = Auth.URL + '/products/$id.json?auth=$authToken';
         await http.patch(
           Uri.parse(url),
           body: json.encode({
-            'title': value.title,
+            'title': value!.title,
             'description': value.description,
             'price': value.price,
             'imageUrl': value.imageUrl,
           }),
         );
       }
-      _items[prodIndex] = value;
+      _items![prodIndex] = value;
       notifyListeners();
     }
   }
 
-  Future<void> deleteProduct(String id) async {
+  Future<void> deleteProduct(String? id) async {
     final url = Auth.URL + '/products/$id.json?auth=$authToken';
     final existingProductIndex =
-        _items.indexWhere((element) => element.id == id);
-    var existingProduct = _items[existingProductIndex];
-    _items.removeAt(existingProductIndex);
+        _items!.indexWhere((element) => element!.id == id);
+    var existingProduct = _items![existingProductIndex];
+    _items!.removeAt(existingProductIndex);
     notifyListeners();
     if (authToken != null) {
       try {
@@ -189,7 +189,7 @@ class Products with ChangeNotifier {
         }
         existingProduct = null;
       } catch (error) {
-        _items.insert(existingProductIndex, existingProduct);
+        _items!.insert(existingProductIndex, existingProduct);
         notifyListeners();
       }
     }

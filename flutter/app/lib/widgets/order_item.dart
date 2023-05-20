@@ -22,7 +22,7 @@ class _OrderItemState extends State<OrderItem> {
       margin: EdgeInsets.all(10),
       child: Column(children: [
         ListTile(
-          title: Text('\$${widget.order.amount.toStringAsFixed(2)}'),
+          title: Text('\$${widget.order.amount!.toStringAsFixed(2)}'),
           subtitle: Text(
             DateFormat('MM/dd/yyyy hh:mm').format(widget.order.dateTime),
           ),
@@ -47,7 +47,7 @@ class _OrderItemState extends State<OrderItem> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            e.title,
+                            e.title!,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

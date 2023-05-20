@@ -1,4 +1,4 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../providers/cart.dart';
 import '../providers/orders.dart';
@@ -10,13 +10,13 @@ import 'package:provider/provider.dart';
 class CheckoutScreen extends StatefulWidget {
   static const routeName = '/checkout';
 
-  final bool showPhone;
-  final bool showName;
-  final bool showAddress;
-  final String message;
-  final String url;
+  final bool? showPhone;
+  final bool? showName;
+  final bool? showAddress;
+  final String? message;
+  final String? url;
   final String order;
-  final String paymentLink;
+  final String? paymentLink;
   final Function checkoutFunction;
 
   CheckoutScreen(this.checkoutFunction, this.showPhone, this.showName,
@@ -28,43 +28,41 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutState extends State<CheckoutScreen> {
   final _formKey = GlobalKey<FormState>();
-  var _userEmail = '';
-  var _userName = '';
-  var _address = '';
-  var _phone = '';
+  String? _userEmail = '';
+  String? _userName = '';
+  String? _address = '';
+  String? _phone = '';
   var _submitted = false;
 
   _launchLink(link) async {
-    if (await canLaunch(link)) {
-      await launch(link);
+    if (await canLaunchUrlString(link)) {
+      await launchUrlString(link);
     } else {
       throw 'Could not launch $link';
     }
   }
 
   void _trySubmit() async {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
     if (isValid) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
 
       Orders ordersData = Provider.of<Orders>(context, listen: false);
       String orderString = '';
       double price = 0.0;
-      if (ordersData != null &&
-          ordersData.orders != null &&
-          ordersData.orders.length > 0) {
+      if (ordersData.orders.length > 0) {
         OrderItem orderItem = ordersData.orders[ordersData.orders.length - 1];
         orderString += orderItem.dateTime.toIso8601String() + ', ';
         orderString += orderItem.amount.toString() + ', ';
         for (int i = 0; i < orderItem.products.length; i++) {
           CartItem product = orderItem.products[i];
-          orderString += product.title + ', ';
+          orderString += product.title! + ', ';
           orderString += product.quantity.toString() + ', ';
           orderString += product.price.toString() + ', ';
 
-          price += product.price * product.quantity;
+          price += product.price! * product.quantity!;
         }
       }
 
@@ -81,7 +79,7 @@ class _CheckoutState extends State<CheckoutScreen> {
         _submitted = true;
 
         if (widget.paymentLink != null && widget.paymentLink != '') {
-          _launchLink(widget.paymentLink.startsWith('http')
+          _launchLink(widget.paymentLink!.startsWith('http')
               ? '${widget.paymentLink}/$price'
               : 'https://${widget.paymentLink}/$price');
         }
@@ -110,7 +108,7 @@ class _CheckoutState extends State<CheckoutScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  _submitted ? 'Thank you!' : widget.message,
+                  _submitted ? 'Thank you!' : widget.message!,
                   style: TextStyle(
                     fontSize: 21,
                   ),
@@ -125,14 +123,14 @@ class _CheckoutState extends State<CheckoutScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       // showScore is name
-                      if (!_submitted && widget.showName)
+                      if (!_submitted && widget.showName!)
                         TextFormField(
                           key: ValueKey('username'),
                           autocorrect: true,
                           textCapitalization: TextCapitalization.words,
                           enableSuggestions: false,
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Please enter at least 1 character.';
                             }
 
@@ -152,7 +150,7 @@ class _CheckoutState extends State<CheckoutScreen> {
                           textCapitalization: TextCapitalization.none,
                           enableSuggestions: false,
                           validator: (value) {
-                            if (value.isEmpty || !value.contains('@')) {
+                            if (value!.isEmpty || !value.contains('@')) {
                               return 'Please enter a valid email address.';
                             }
 
@@ -167,14 +165,14 @@ class _CheckoutState extends State<CheckoutScreen> {
                           },
                         ),
 
-                      if (!_submitted && widget.showAddress)
+                      if (!_submitted && widget.showAddress!)
                         TextFormField(
                           key: ValueKey('address'),
                           autocorrect: true,
                           textCapitalization: TextCapitalization.words,
                           enableSuggestions: false,
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Please enter at least 1 character.';
                             }
 
@@ -189,11 +187,11 @@ class _CheckoutState extends State<CheckoutScreen> {
                         ),
 
                       // showResult is name
-                      if (!_submitted && widget.showPhone)
+                      if (!_submitted && widget.showPhone!)
                         TextFormField(
                           key: ValueKey('phone'),
                           validator: (value) {
-                            if (value.isEmpty || value.length < 3) {
+                            if (value!.isEmpty || value.length < 3) {
                               return 'Please enter at least 3 characters.';
                             }
 

@@ -6,19 +6,19 @@ import 'package:http/http.dart' as http;
 import 'auth.dart';
 
 class Product with ChangeNotifier {
-  final String id;
-  final String title;
-  final String description;
-  final double price;
-  final String imageUrl;
-  bool isFavorite;
+  final String? id;
+  final String? title;
+  final String? description;
+  final double? price;
+  final String? imageUrl;
+  bool? isFavorite;
 
   Product({
-    @required this.id,
-    @required this.title,
-    @required this.description,
-    @required this.price,
-    @required this.imageUrl,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.imageUrl,
     this.isFavorite = false,
   });
 
@@ -33,9 +33,9 @@ class Product with ChangeNotifier {
     };
   }
 
-  Future<void> toggleFavoriteStatus(String token, String userId) async {
+  Future<void> toggleFavoriteStatus(String? token, String? userId) async {
     final oldStatus = isFavorite;
-    isFavorite = !isFavorite;
+    isFavorite = !isFavorite!;
     notifyListeners();
 
     if (token != null) {

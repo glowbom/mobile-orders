@@ -22,7 +22,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Image.network(
-            product.imageUrl,
+            product.imageUrl!,
             fit: BoxFit.cover,
           ),
         ),
@@ -31,7 +31,7 @@ class ProductItem extends StatelessWidget {
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
-                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
+                  product.isFavorite! ? Icons.favorite : Icons.favorite_border),
               onPressed: () {
                 product.toggleFavoriteStatus(authData.token, authData.userId);
               },
@@ -39,7 +39,7 @@ class ProductItem extends StatelessWidget {
             ),
           ),
           title: Text(
-            product.title,
+            product.title!,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(

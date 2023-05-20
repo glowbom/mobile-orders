@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CartItem {
-  final String id;
-  final String title;
-  final int quantity;
-  final double price;
+  final String? id;
+  final String? title;
+  final int? quantity;
+  final double? price;
 
   CartItem({
-    @required this.id,
-    @required this.title,
-    @required this.quantity,
-    @required this.price,
+    required this.id,
+    required this.title,
+    required this.quantity,
+    required this.price,
   });
 }
 
 class Cart with ChangeNotifier {
-  Map<String, CartItem> _items = {};
+  Map<String?, CartItem> _items = {};
 
-  Map<String, CartItem> get items {
+  Map<String?, CartItem> get items {
     return {..._items};
   }
 
@@ -28,15 +28,15 @@ class Cart with ChangeNotifier {
   double get totalAmount {
     var total = 0.0;
     _items.forEach((key, value) {
-      total += value.price * value.quantity;
+      total += value.price! * value.quantity!;
     });
     return total;
   }
 
   void addItem(
-    String productId,
-    double price,
-    String title,
+    String? productId,
+    double? price,
+    String? title,
   ) {
     if (_items.containsKey(productId)) {
       _items.update(
@@ -45,7 +45,7 @@ class Cart with ChangeNotifier {
           id: value.id,
           title: value.title,
           price: value.price,
-          quantity: value.quantity + 1,
+          quantity: value.quantity! + 1,
         ),
       );
     } else {
@@ -63,23 +63,23 @@ class Cart with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeItem(String productId) {
+  void removeItem(String? productId) {
     _items.remove(productId);
     notifyListeners();
   }
 
-  void removeSigleItem(String productId) {
+  void removeSigleItem(String? productId) {
     if (!_items.containsKey(productId)) {
       return;
     }
 
-    if (_items[productId].quantity > 1) {
+    if (_items[productId]!.quantity! > 1) {
       _items.update(
         productId,
         (value) => CartItem(
           id: value.id,
           title: value.title,
-          quantity: value.quantity - 1,
+          quantity: value.quantity! - 1,
           price: value.price,
         ),
       );

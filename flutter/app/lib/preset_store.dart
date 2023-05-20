@@ -25,7 +25,7 @@ void main() {
 }
 
 class MobileOrdersApp extends StatefulWidget {
-  static String title = 'Mobile Orders';
+  static String? title = 'Mobile Orders';
   final dynamic content;
   final bool onlyEditor;
   MobileOrdersApp(this.content, this.onlyEditor);
@@ -117,7 +117,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
         ChangeNotifierProvider(
           create: (ctx) => Auth(),
         ),
-        ChangeNotifierProxyProvider<Auth, Products>(
+        ChangeNotifierProxyProvider<Auth, Products?>(
           create: (ctx) => null,
           update: (ctx, auth, previousProducts) => Products(
             auth.token,
@@ -128,7 +128,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
         ChangeNotifierProvider(
           create: (ctx) => Cart(),
         ),
-        ChangeNotifierProxyProvider<Auth, Orders>(
+        ChangeNotifierProxyProvider<Auth, Orders?>(
           create: (ctx) => null,
           update: (ctx, auth, previousOrders) => Orders(
             auth.token,
@@ -139,7 +139,7 @@ class _MobileOrdersAppState extends State<MobileOrdersApp> {
       ],
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
-          title: MobileOrdersApp.title,
+          title: MobileOrdersApp.title!,
           theme: ThemeData(
             primarySwatch: _content != null
                 ? (_content['main_color'] == 'Blue'

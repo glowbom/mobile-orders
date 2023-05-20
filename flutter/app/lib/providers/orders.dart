@@ -7,23 +7,23 @@ import './cart.dart';
 import 'auth.dart';
 
 class OrderItem {
-  final String id;
-  final double amount;
+  final String? id;
+  final double? amount;
   final List<CartItem> products;
   final DateTime dateTime;
 
   OrderItem({
-    @required this.id,
-    @required this.amount,
-    @required this.products,
-    @required this.dateTime,
+    required this.id,
+    required this.amount,
+    required this.products,
+    required this.dateTime,
   });
 }
 
 class Orders with ChangeNotifier {
   List<OrderItem> _orders = [];
-  final String authToken;
-  final String userId;
+  final String? authToken;
+  final String? userId;
 
   Orders(this.authToken, this.userId, this._orders);
 
@@ -39,7 +39,7 @@ class Orders with ChangeNotifier {
     final url = Auth.URL + '/orders/$userId.json?auth=$authToken';
     try {
       final response = await http.get(Uri.parse(url));
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      final extractedData = json.decode(response.body) as Map<String, dynamic>?;
       if (extractedData == null) {
         return;
       }

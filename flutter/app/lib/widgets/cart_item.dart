@@ -3,11 +3,11 @@ import '../providers/cart.dart';
 import 'package:provider/provider.dart';
 
 class CartItem extends StatelessWidget {
-  final String id;
-  final String productId;
-  final double price;
-  final int quantity;
-  final String title;
+  final String? id;
+  final String? productId;
+  final double? price;
+  final int? quantity;
+  final String? title;
 
   CartItem(
     this.id,
@@ -22,7 +22,7 @@ class CartItem extends StatelessWidget {
     return Dismissible(
       key: ValueKey(id),
       background: Container(
-        color: Theme.of(context).errorColor,
+        color: Theme.of(context).colorScheme.error,
         child: Icon(
           Icons.delete,
           color: Colors.white,
@@ -76,8 +76,8 @@ class CartItem extends StatelessWidget {
                 ),
               ),
             ),
-            title: Text(title),
-            subtitle: Text('Total: \$${(price * quantity)}'),
+            title: Text(title!),
+            subtitle: Text('Total: \$${(price! * quantity!)}'),
             trailing: Text('$quantity x'),
           ),
         ),
