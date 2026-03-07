@@ -1,3 +1,12 @@
+## Status
+
+This repository is a legacy **Glowbom** project and is no longer the current product direction.
+
+The original store workflow described here is no longer the active flow on glowbom.com. This repo is kept public for reference and historical interest.
+
+For the current open source Glowby coding-agent workflow, see:
+https://github.com/glowbom/glowby
+
 ## Glowbom Store
 
 **Glowbom Store** can help you set up a simple e-commerce flutter app connected to a Google Sheet. No programming skills required.
