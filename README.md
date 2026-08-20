@@ -5,7 +5,7 @@ This repository is a legacy **Glowbom** project and is no longer the current pro
 The original store workflow described here is no longer the active flow on glowbom.com. This repo is kept public for reference and historical interest.
 
 For the current open source Glowbom coding-agent workflow, see:
-[github.com/glowbom/glowby](https://github.com/glowbom/glowbom-oss)
+[github.com/glowbom/glowbom-oss](https://github.com/glowbom/glowbom-oss)
 
 ## Glowbom Store
 
